@@ -2,10 +2,9 @@ function App() {
 
 
   return (
-    <div className="bg-blue-100 w-screen h-screen">
+    <div className="m-0 pt-[25px] pr-[120px] pl-[120px] pb-[0]">
       <p>dsdsdsdsdsdsd</p>
-        <button>RED</button>
-        <p>qwerty</p>
+
     </div>
   )
 }

@@ -8,11 +8,11 @@ export default function Header() {
         <>
             <header className="flex flex-row justify-between content-center">
                 <img src={ImgLogo} alt="Logo" className="w-[150px] h-[34px]" />
-                <div className="flex flex-row gap-[50px] font-normal text-gray-700">
-                    <a href="#">Home</a>
-                    <a href="#">Shop</a>
-                    <a href="#">Plant Care</a>
-                    <a href="#">Blogs</a>
+                <div className="flex flex-row gap-[50px] font-medium text-gray-700">
+                    <a href="#" className="hover:text-black transition decoration-300">Home</a>
+                    <a href="#" className="hover:text-black transition decoration-300">Shop</a>
+                    <a href="#" className="hover:text-black transition decoration-300">Plant Care</a>
+                    <a href="#" className="hover:text-black transition decoration-300">Blogs</a>
                 </div>
                 <div className="flex flex-row justify-center content-center gap-[30px]">
                     <a href="#"><img src={ImgSearch} alt="" className="w-[30px]"/></a>

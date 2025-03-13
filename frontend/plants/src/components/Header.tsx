@@ -3,11 +3,8 @@
 export default function Header() {
     return (
         <div>
-            <p>sdasdadasa</p>
-            <p>sdasdadasa</p>
-            <p>sdasdadasa</p>
-            <p>sdasdadasa</p>
-            <p>sdasdadasa</p>
+            <label htmlFor="text">Text</label>
+            <input type="text"/>
         </div>
     )
 }

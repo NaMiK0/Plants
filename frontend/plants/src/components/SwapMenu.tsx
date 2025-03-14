@@ -13,7 +13,8 @@ export default function SwapMenu() {
                     Urban Jungle. Order your favorite plants!
                 </p>
 
-                <button className="uppercase bg-green-700 text-white w-[140px] h-[40px] mt-[40px] rounded-[8px] hover:bg-green-600 cursor-pointer transition duration-300">shop now</button>
+                <button className="uppercase bg-green-700 text-white w-[140px] h-[40px] mt-[40px] rounded-[8px] hover:bg-green-600
+                 cursor-pointer transition duration-300 font-semibold">shop now</button>
             </div>
             <div className="w-[40%] flex justify-end">
                 <img src={ImgPlants1Modal} alt="Img" className="h-full"/>

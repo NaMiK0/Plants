@@ -1,6 +1,6 @@
 import ImgPlants1Modal from "../assets/Slider/plants-modal.png"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {Pagination, A11y } from 'swiper/modules';
+import {Pagination, A11y, Autoplay} from 'swiper/modules';
 // @ts-ignore
 import 'swiper/css';
 // @ts-ignore
@@ -14,9 +14,12 @@ export default function Slider() {
         <div className="w-full h-[450px] flex justify-between bg-gray-100 mt-3 content-center">
             <Swiper
                 // install Swiper modules
-                modules={[Pagination, A11y]}
+                modules={[Pagination, A11y, Autoplay]}
                 spaceBetween={50}
                 slidesPerView={1}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,}}
                 pagination={{clickable: true}}
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}

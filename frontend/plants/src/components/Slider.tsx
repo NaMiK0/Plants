@@ -1,5 +1,6 @@
 import ImgPlants1Modal from "../assets/Slider/plants-modal.png"
 import ImgPlants2Modal from "../assets/Slider/BookPlant.png"
+import ImgPlants3Modal from "../assets/Slider/plant-slide3.png"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {Pagination, A11y, Autoplay} from 'swiper/modules';
@@ -10,16 +11,21 @@ import 'swiper/css/navigation';
 // @ts-ignore
 import 'swiper/css/pagination';
 
+
+
+
 export default function Slider() {
     return (
         <div className="w-full h-[450px] flex justify-between bg-gray-100 mt-3 content-center">
             <Swiper
                 modules={[Pagination, A11y, Autoplay]}
+                speed={800}
                 spaceBetween={50}
                 slidesPerView={1}
                 autoplay={{
-                    delay: 6000,
+                    delay: 3000,
                     disableOnInteraction: false,}}
+                loop={false}
                 pagination={{clickable: true}}
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
@@ -77,21 +83,43 @@ export default function Slider() {
                 </SwiperSlide>
 
                 {/*3*/}
-                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide>
+                    <div className="flex justify-between content-center h-[450px] w-full">
+                        <div className="flex flex-col w-[77%] gap-[7px] pt-[60px] pl-[40px]">
+                            <p className="text-[14px] text-gray-800 font-normal leading-[16px] uppercase">Welcome to
+                                GreenShop</p>
+                            <h1 className="text-[65px] text-gray-900 font-extrabold leading-[70px] uppercase">
+                                Be responsible for those you have <span className="text-green-600">raised</span>
+                            </h1>
+                            <p className="text-[14px] leading-[30px] font-normal text-gray-500">
+                                Grow your dream, make green friends, find yourself a new exciting hobby, care in every new petal!
+                            </p>
+
+                            <button className="uppercase bg-green-700 text-white w-[140px] h-[40px] mt-[40px] rounded-[8px] hover:bg-green-600
+                                    cursor-pointer transition duration-300 font-semibold">
+                                try now
+                            </button>
+                        </div>
+                        <div className="w-[44%] flex flex-column justify-end items-end">
+                            <img src={ImgPlants3Modal} alt="Img" className=""/>
+                        </div>
+                    </div>
+                </SwiperSlide>
             </Swiper>
             <style>
                 {`
-            .swiper-pagination-bullet {
-                background-color: #ccc;
-                opacity: 1;
-                width: 10px;
-                height: 10px;
-                margin: 0 4px !important;
-            }
-
-            .swiper-pagination-bullet-active {
-                background-color: #4CAF50;
-            }
+                    
+                    .swiper-pagination-bullet {
+                        background-color: #ccc;
+                        opacity: 1;
+                        width: 10px;
+                        height: 10px;
+                        margin: 0 4px !important;
+                    }
+        
+                    .swiper-pagination-bullet-active {
+                        background-color: #4CAF50;
+                    }
         `}
             </style>
         </div>

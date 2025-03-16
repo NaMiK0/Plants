@@ -24,7 +24,7 @@ export default function Slider() {
                 slidesPerView={1}
                 autoplay={{
                     delay: 3000,
-                    disableOnInteraction: false,}}
+                    disableOnInteraction: true,}}
                 loop={false}
                 pagination={{clickable: true}}
                 onSwiper={(swiper) => console.log(swiper)}

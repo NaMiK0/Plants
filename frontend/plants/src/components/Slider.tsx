@@ -33,7 +33,7 @@ export default function Slider() {
                 {/*1*/}
                 <SwiperSlide>
                     <div className="flex justify-between content-center h-[450px] w-full">
-                        <div className="flex flex-col w-[50%] gap-[7px] pt-[60px] pl-[40px]">
+                        <div className="flex flex-col w-[56%] gap-[7px] pt-[60px] pl-[40px]">
                             <p className="text-[14px] text-gray-800 font-normal leading-[16px] uppercase">Welcome to
                                 GreenShop</p>
                             <h1 className="text-[70px] text-gray-900 font-extrabold leading-[77px] uppercase">Let’s Make
@@ -51,7 +51,7 @@ export default function Slider() {
                                 shop now
                             </button>
                         </div>
-                        <div className="w-[50%] flex justify-end">
+                        <div className="w-[44%] flex justify-end">
                             <img src={ImgPlants1Modal} alt="Img" className="h-full"/>
                         </div>
                     </div>

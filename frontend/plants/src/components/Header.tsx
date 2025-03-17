@@ -8,7 +8,7 @@ import ImgLine1 from "../assets/Header/Line 7.png"
 import ImgLine2 from "../assets/Header/Line 8.png"
 import ImgHide from "../assets/Header/Hide.png"
 import ImgShow from "../assets/Header/Show.png"
-import Modal from "./Modal.tsx";
+import Modal_Auth_Log from "./Modal_Auth_Log.tsx";
 import {useState} from "react";
 
 
@@ -49,7 +49,7 @@ export default function Header() {
                         <img src={ImgLogout} alt="Logout" className="w-[20px] h-[20px] mt-[3px]"/> Login
                     </button>
 
-                    <Modal isOpen={isOpenModal} closeModal={closeModal} isRegistering={isRegistering}>
+                    <Modal_Auth_Log isOpen={isOpenModal} closeModal={closeModal} isRegistering={isRegistering}>
                         <div className="flex flex-row justify-center content-center gap-[30px] pt-[30px]">
                             <a
                                 href="#"
@@ -158,7 +158,7 @@ export default function Header() {
                             </button>
                         </div>
                         <div className="w-full h-[10px] bg-[#46A358] relative bottom-[-10px]"></div>
-                    </Modal>
+                    </Modal_Auth_Log>
                 </div>
             </header>
             <div className="w-full h-[1px] mt-[18px] bg-gray-300"></div>

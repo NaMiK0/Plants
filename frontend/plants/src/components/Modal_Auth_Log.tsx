@@ -1,6 +1,6 @@
 import ImgX from "../assets/Header/X.svg";
 
-const Modal = ({isOpen, closeModal, children, isRegistering}) => {
+const Modal_Auth_Log = ({isOpen, closeModal, children, isRegistering}) => {
     if(!isOpen){ return null }
 
     return (
@@ -19,4 +19,4 @@ const Modal = ({isOpen, closeModal, children, isRegistering}) => {
     )
 }
 
-export default Modal
+export default Modal_Auth_Log

@@ -5,7 +5,7 @@ const Modal_Auth_Log = ({isOpen, closeModal, children, isRegistering}) => {
 
     return (
         <div
-            className="fixed w-full h-full bg-black/30 flex justify-center items-center z-10 right-0 ">
+            className="fixed top-0 w-full h-screen bg-black/30 flex justify-center items-center z-10 right-0">
             <div
                 className={'relative bg-white w-[500px] justify-center' +
                     ' items-center text-center flex flex-col shadow-sm gap-[50px] transition-all duration-300' +

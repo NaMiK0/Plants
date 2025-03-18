@@ -8,6 +8,8 @@ import ImgCard6 from "../assets/Cards/card6.png"
 import ImgCard7 from "../assets/Cards/card7.png"
 import ImgCard8 from "../assets/Cards/card8.png"
 import ImgCard9 from "../assets/Cards/card9.png"
+import DropdownMenuHome from "./DropdownMenuHome.tsx";
+
 
 
 export default function ContentHome() {
@@ -24,7 +26,7 @@ export default function ContentHome() {
                         <a href="#">Sale</a>
                     </div>
                     <div>
-                        <p>Short by: <a href="#">Default sorting</a></p>
+                        <DropdownMenuHome/>
                     </div>
                 </nav>
                 <div className="grid grid-cols-3 gap-[41px]">

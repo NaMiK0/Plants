@@ -1,5 +1,6 @@
 import ImgX from "../assets/Header/X.svg";
 
+// @ts-ignore
 const Modal_Auth_Log = ({isOpen, closeModal, children, isRegistering}) => {
     if(!isOpen){ return null }
 

@@ -6,9 +6,12 @@ import ImgLike from "../assets/Cards/like.svg"
 import {motion} from "framer-motion";
 
 interface  ProductCardProps {
+    id: number;
+    category: string;
     image: string;
     title: string;
     price: number;
+    size: string;
 }
 
 

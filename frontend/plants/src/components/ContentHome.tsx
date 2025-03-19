@@ -29,9 +29,24 @@ export default function ContentHome() {
             <section className="w-[70%] flex flex-col">
                 <nav className="flex flex-row justify-between mb-[38px]">
                     <div className="flex flex-row items-center gap-[40px]">
-                        <a href="#">All Plants</a>
-                        <a href="#">New Arrivals</a>
-                        <a href="#">Sale</a>
+                        <button
+                           onClick={() => setSelectedCategory("All Plants")}
+                           className="cursor-pointer"
+                        >
+                            All Plants
+                        </button>
+                        <button
+                            onClick={() => setSelectedCategory("New Arrivals")}
+                            className="cursor-pointer"
+                        >
+                            New Arrivals
+                        </button>
+                        <button
+                            onClick={() => setSelectedCategory("Sale")}
+                            className="cursor-pointer"
+                        >
+                            Sale
+                        </button>
                     </div>
                     <div>
                         <DropdownMenuHome setSortOrder={setSortOrder}/>
@@ -44,7 +59,7 @@ export default function ContentHome() {
                     >
                         <CardOrder
                             id={1}
-                            category="House Plants"
+                            category={["House Plants", "New Arrivals"]}
                             image={ImgCard1}
                             title="Aluminum Plant"
                             price={179}
@@ -52,7 +67,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={2}
-                            category="Potter Plants"
+                            category={["Potter Plants"]}
                             image={ImgCard2}
                             title="Barberton Daisy"
                             price={119}
@@ -60,7 +75,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={3}
-                            category="Seeds"
+                            category={["Seeds", "New Arrivals"]}
                             image={ImgCard3}
                             title="Angel Wing Begonia"
                             price={169}
@@ -68,7 +83,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={4}
-                            category="Small Plants"
+                            category={["Small Plants"]}
                             image={ImgCard4}
                             title="African Violet"
                             price={199}
@@ -76,7 +91,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={5}
-                            category="Big Plants"
+                            category={["Big Plants"]}
                             image={ImgCard5}
                             title="Beach Spider Lily"
                             price={129}
@@ -84,7 +99,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={6}
-                            category="Succulents"
+                            category={["Succulents", "New Arrivals"]}
                             image={ImgCard6}
                             title="Blushing Bromeliad"
                             price={139}
@@ -92,7 +107,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={7}
-                            category="Terrariums"
+                            category={["Terrariums"]}
                             image={ImgCard7}
                             title="Bird's Nest Fern"
                             price={99}
@@ -100,7 +115,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={8}
-                            category="Gardening"
+                            category={["Gardening", "New Arrivals"]}
                             image={ImgCard8}
                             title="Broadleaf Lady Palm"
                             price={59}
@@ -108,7 +123,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={9}
-                            category="Accessories"
+                            category={["Accessories"]}
                             image={ImgCard9}
                             title="Chinese Evergreen"
                             price={39}

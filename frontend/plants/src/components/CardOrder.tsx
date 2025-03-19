@@ -7,7 +7,7 @@ import {motion} from "framer-motion";
 
 interface  ProductCardProps {
     id: number;
-    category: string;
+    category: string[];
     image: string;
     title: string;
     price: number;

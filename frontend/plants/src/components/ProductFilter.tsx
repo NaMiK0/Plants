@@ -11,7 +11,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({selectedCategory, selected
     const productsArray = React.Children.toArray(children);
 
     const filteredProducts = productsArray.filter((child:any) => {
-        const matchesCategory = selectedCategory === "All Plants" || child.props.category === selectedCategory;
+        const matchesCategory = selectedCategory === "All Plants" || child.props.category.includes(selectedCategory);
         const matchesSize = selectedSize === "All" || child.props.size === selectedSize;
         return matchesCategory && matchesSize;
     })

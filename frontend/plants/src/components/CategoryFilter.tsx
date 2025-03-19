@@ -33,7 +33,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, se
             {categories.map(category => (
                 <button
                     key={category}
-                    className="px-4 py-2 border"
+                    className="px-4 py-2 border bg-blue-200"
                     onClick={() => setSelectedCategory(category)}>
                     {category}
                 </button>

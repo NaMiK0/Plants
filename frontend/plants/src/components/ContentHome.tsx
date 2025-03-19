@@ -18,7 +18,8 @@ import DropdownMenuHome from "./DropdownMenuHome.tsx";
 export default function ContentHome() {
     const [selectedCategory, setSelectedCategory] = useState<string>("All Plants");
     const [selectedSize, setSelectedSize] = useState<string>("All");
-    const [sortOrder, setSortOrder] = useState<string>("Default sorting");
+    const [sortOrder, setSortOrder] = useState<"default" | "asc" | "desc">("default");
+
 
     return (
         <div className="mt-[46px] flex flex-row gap-[50px]">
@@ -36,7 +37,11 @@ export default function ContentHome() {
                         <DropdownMenuHome setSortOrder={setSortOrder}/>
                     </div>
                 </nav>
-                    <ProductFilter selectedCategory={selectedCategory} selectedSize={selectedSize} sortOrder={sortOrder}>
+                    <ProductFilter
+                        selectedCategory={selectedCategory}
+                        selectedSize={selectedSize}
+                        sortOrder={sortOrder}
+                    >
                         <CardOrder
                             id={1}
                             category="House Plants"

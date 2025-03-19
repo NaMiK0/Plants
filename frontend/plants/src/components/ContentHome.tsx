@@ -27,7 +27,7 @@ export default function ContentHome() {
             </section>
             <section className="w-[70%] flex flex-col">
                 <nav className="flex flex-row justify-between mb-[38px]">
-                    <div className="flex flex-row gap-[40px]">
+                    <div className="flex flex-row items-center gap-[40px]">
                         <a href="#">All Plants</a>
                         <a href="#">New Arrivals</a>
                         <a href="#">Sale</a>

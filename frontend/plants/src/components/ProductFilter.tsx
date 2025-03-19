@@ -14,7 +14,7 @@ const ProductFilter: React.FC<ProductFilterProps> = ({selectedCategory, selected
         const matchesCategory = selectedCategory === "All Plants" || child.props.category === selectedCategory;
         const matchesSize = selectedSize === "All" || child.props.size === selectedSize;
         return matchesCategory && matchesSize;
-    }
+    })
 
     const sortedProducts = [...filteredProducts].sort((a:any, b:any) => {
         if (sortOrder === "asc") return a.props.price - b.props.price;

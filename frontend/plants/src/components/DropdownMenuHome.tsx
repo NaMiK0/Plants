@@ -8,11 +8,11 @@ interface DropdownMenuProps {
 
 
 export default function DropdownMenuHome({setSortOrder}: DropdownMenuProps) {
-    const [selectedOption, setSelectedOption] = useState("Default sorting")
+    const [selectedOption, setSelectedOption] = useState("Default")
     const options: {label:string; value:"default" | "asc" | "desc";}[] = [
-        { label: "Default sorting", value: "default" },
-        { label: "Sort Ascending", value: "asc" },
-        { label: "Sort Descending", value: "desc" }
+        { label: "Default", value: "default" },
+        { label: "Ascending", value: "asc" },
+        { label: "Descending", value: "desc" }
     ];
 
 
@@ -36,7 +36,7 @@ export default function DropdownMenuHome({setSortOrder}: DropdownMenuProps) {
                                 className={`block w-full text-left px-4 py-2 text-sm`}
                                 onClick={() => {
                                     setSortOrder(option.value)
-                                    setSelectedOption(option.value)
+                                    setSelectedOption(option.label)
                                 }}
                             >
                                 {option.label}

@@ -29,24 +29,17 @@ export default function ContentHome() {
             <section className="w-[70%] flex flex-col">
                 <nav className="flex flex-row justify-between mb-[38px]">
                     <div className="flex flex-row items-center gap-[40px]">
-                        <button
-                           onClick={() => setSelectedCategory("All Plants")}
-                           className="cursor-pointer"
-                        >
-                            All Plants
-                        </button>
-                        <button
-                            onClick={() => setSelectedCategory("New Arrivals")}
-                            className="cursor-pointer"
-                        >
-                            New Arrivals
-                        </button>
-                        <button
-                            onClick={() => setSelectedCategory("Sale")}
-                            className="cursor-pointer"
-                        >
-                            Sale
-                        </button>
+                        {["All Plants", "New Arrivals", "Sale"].map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => setSelectedCategory(category)}
+                                className={`cursor-pointer pb-2 transition-all duration-200 ${
+                                    selectedCategory === category ? "border-b-2 border-green-500 font-semibold" : "text-gray-500"
+                                }`}
+                            >
+                                {category}
+                            </button>
+                        ))}
                     </div>
                     <div>
                         <DropdownMenuHome setSortOrder={setSortOrder}/>
@@ -91,7 +84,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={5}
-                            category={["Big Plants"]}
+                            category={["Big Plants", "Sale"]}
                             image={ImgCard5}
                             title="Beach Spider Lily"
                             price={129}
@@ -99,7 +92,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={6}
-                            category={["Succulents", "New Arrivals"]}
+                            category={["Succulents", "New Arrivals", "Sale"]}
                             image={ImgCard6}
                             title="Blushing Bromeliad"
                             price={139}
@@ -107,7 +100,7 @@ export default function ContentHome() {
                         />
                         <CardOrder
                             id={7}
-                            category={["Terrariums"]}
+                            category={["Terrariums", "Sale"]}
                             image={ImgCard7}
                             title="Bird's Nest Fern"
                             price={99}

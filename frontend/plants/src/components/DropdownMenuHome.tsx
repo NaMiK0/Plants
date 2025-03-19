@@ -2,14 +2,18 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon} from '@heroicons/react/20/solid'
 import {useState} from 'react'
 
+interface DropdownMenuProps {
+    setSortOrder: (order: "default" | "asc" | "desc") => void;
+}
 
-export default function DropdownMenuHome() {
+
+export default function DropdownMenuHome({setSortOrder}: DropdownMenuProps) {
     const [selectedOption, setSelectedOption] = useState("Default sorting")
-    const options = [
-        'Default sorting',
-        'Sort Ascending',
-        'Sort Descending'
-    ]
+    const options: {label:string; value:"default" | "asc" | "desc";}[] = [
+        { label: "Default sorting", value: "default" },
+        { label: "Sort Ascending", value: "asc" },
+        { label: "Sort Descending", value: "desc" }
+    ];
 
 
     return (
@@ -27,20 +31,31 @@ export default function DropdownMenuHome() {
             >
                 <div className="py-1">
                     {options.map((option) => (
-                        <MenuItem key={option}>
-                            {({active: active}) => (
-                                <a
-                                    // href="#"
-                                    className={`block px-4 py-2 text-sm text-gray-700 ${
-                                        active ? 'bg-gray-100' : ''
-                                    }`}
-                                    onClick={() => setSelectedOption(option)}
-                                >
-                                    <div className="flex items-center">
-                                        <span className="flex-1">{option}</span>
-                                    </div>
-                                </a>
-                            )}
+                        <MenuItem key={option.value}>
+                            <button
+                                className={`block w-full text-left px-4 py-2 text-sm`}
+                                onClick={() => {
+                                    setSortOrder(option.value)
+                                    setSelectedOption(option.value)
+                                }}
+                            >
+                                {option.label}
+                            </button>
+
+
+                            {/*{({active: active}) => (*/}
+                            {/*    <a*/}
+                            {/*        // href="#"*/}
+                            {/*        className={`block px-4 py-2 text-sm text-gray-700 ${*/}
+                            {/*            active ? 'bg-gray-100' : ''*/}
+                            {/*        }`}*/}
+                            {/*        onClick={() => setSelectedOption(option)}*/}
+                            {/*    >*/}
+                            {/*        <div className="flex items-center">*/}
+                            {/*            <span className="flex-1">{option}</span>*/}
+                            {/*        </div>*/}
+                            {/*    </a>*/}
+                            {/*)}*/}
                         </MenuItem>
                     ))}
                 </div>

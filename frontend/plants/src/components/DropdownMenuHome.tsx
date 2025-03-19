@@ -1,5 +1,5 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { ChevronDownIcon, CheckIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon} from '@heroicons/react/20/solid'
 import {useState} from 'react'
 
 
@@ -15,7 +15,7 @@ export default function DropdownMenuHome() {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
-                <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50">
+                <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm text-gray-900  ring-gray-300 ring-inset hover:bg-gray-50 cursor-pointer">
                     Short by: {selectedOption}
                     <ChevronDownIcon aria-hidden="true" className="-mr-1 size-5 text-gray-400" />
                 </MenuButton>
@@ -23,14 +23,14 @@ export default function DropdownMenuHome() {
 
             <MenuItems
                 transition
-                className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white ring-1 shadow-lg ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+                className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white ring-1 shadow-lg ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in cursor-pointer"
             >
                 <div className="py-1">
                     {options.map((option) => (
                         <MenuItem key={option}>
-                            {({active}) => (
+                            {({active: active}) => (
                                 <a
-                                    href="#"
+                                    // href="#"
                                     className={`block px-4 py-2 text-sm text-gray-700 ${
                                         active ? 'bg-gray-100' : ''
                                     }`}
@@ -38,11 +38,7 @@ export default function DropdownMenuHome() {
                                 >
                                     <div className="flex items-center">
                                         <span className="flex-1">{option}</span>
-                                        {selectedOption === option && (
-                                            <CheckIcon className="h-5 w-5 text-green-500"/>
-                                        )}
                                     </div>
-
                                 </a>
                             )}
                         </MenuItem>

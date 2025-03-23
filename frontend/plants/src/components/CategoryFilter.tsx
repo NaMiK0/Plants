@@ -13,78 +13,83 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, se
 
     const size = ["All", "Small", "Medium", "Large"];
 
-    const [minPrice, setMaxPrice] = useState(39);
-    const [maxPrice, setMinPrice] = useState(199);
+    const [minPrice, setMinPrice] = useState<string>("");
+    const [maxPrice, setMaxPrice] = useState<string>("");
+    const [activeCategory, setActiveCategory] = useState<string>("All Plants");
+    const [activeSize, setActiveSize] = useState<string>("All");
 
-    const handleMinChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    {
-        const value = Number(event.target.value);
-        if(value < maxPrice) setMinPrice(value);
-    };
-
-    const handleMaxChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    {
-        const value = Number(event.target.value);
-        if(value > minPrice) setMaxPrice(value);
+    const handlePriceBlur = () => {
+        if (minPrice !== "" && maxPrice !== "" && Number(minPrice) > Number(maxPrice)) {
+            setMinPrice(maxPrice);
+            setMaxPrice(minPrice);
+        }
     };
 
     return (
-        <div className="flex flex-col gap-4 mb-4">
-            {categories.map(category => (
-                <button
-                    key={category}
-                    className="px-4 py-2 border bg-blue-200"
-                    onClick={() => setSelectedCategory(category)}>
-                    {category}
-                </button>
-            ))}
+        <div className="flex flex-col gap-4 mb-4 bg-gray-100 pl-4 pt-2">
+            <h2 className="font-semibold text-lg mb-2">Categories</h2>
+            <div className="ml-4 flex flex-col gap-2">
+                {categories.map(category => (
+                    <button
+                        key={category}
+                        className={`px-4 py-2 flex justify-between items-center ${activeCategory === category ? "text-green-600" : ""}`}
+                        onClick={() => {
+                            setSelectedCategory(category);
+                            setActiveCategory(category);
+                        }}>
+                        <span>{category}</span>
+                        <p className="mb-4 text-gray-600">({})</p>
+                    </button>
+                ))}
+            </div>
 
-            {size.map(size => (
-                <button
-                key={size}
-                className="px-4 py-2 border"
-                onClick={() => setSelectedSize(size)}>
-                    {size}
-                </button>
-            ))}
-            <div className="flex flex-col gap-4 mt-4 w-full max-w-[300px]">
-                <h1>Price Range</h1>
-                <div className="relative w-full">
-                    <div className="absolute top-1/2 w-full h-1 bg-gray-300 rounded-md"></div>
-                    <div
-                        className="absolute top-1/2 h-1 bg-green-500 rounded-md"
-                        style={{
-                            left: `${((minPrice - 39) / (199 - 39)) * 100}%`,
-                            right: `${100 - ((maxPrice - 39) / (199 - 39)) * 100}%`,
-                        }}
-                    ></div>
-
+            <div className="flex flex-col gap-4 mt-4 w-full ">
+                <h2 className="font-semibold text-lg mb-2">Price, ₽</h2>
+                <div className="ml-2 flex gap-2">
                     <input
-                        type="range"
-                        className="absolute w-full appearance-none bg-transparent pointer-events-none"
+                        type="number"
                         value={minPrice}
-                        min="39"
-                        max="199"
-                        onChange={handleMinChange}
-                        style={{ zIndex: 2}}
+                        onChange={(e) => setMinPrice(e.target.value)}
+                        onBlur={handlePriceBlur}
+                        className="border p-2 w-30 text-center ml-2"
+                        placeholder="from"
+                        min="0"
+                        max="1000000"
                     />
-
                     <input
-                        type="range"
-                        className="absolute w-full appearance-none bg-transparent pointer-events-non"
+                        type="number"
                         value={maxPrice}
-                        min="39"
-                        max="199"
-                        onChange={handleMaxChange}
-                        style={{ zIndex: 1}}
+                        onChange={(e) => setMaxPrice(e.target.value)}
+                        onBlur={handlePriceBlur}
+                        className="border p-2 w-30 text-center ml-2"
+                        placeholder="to"
+                        min="0"
+                        max="1000000"
                     />
-
                 </div>
-                <p>Price: <span className="font-bold">${minPrice}</span> - <span
-                    className="font-bold">${maxPrice}</span></p>
                 <button
-                    className="bg-green-500 text-white px-4 py-2 rounded">Filter
+                    className="bg-green-500 text-white px-4 py-2 ml-4 rounded w-[150px]"
+                >
+                    Filter
                 </button>
+            </div>
+
+            <div className="flex flex-col gap-2">
+                <h2 className="font-semibold text-lg mb-2">Size</h2>
+                <div className="ml-4 flex flex-col gap-2">
+                    {size.map(size => (
+                        <button
+                            key={size}
+                            className={`px-4 py-2 flex justify-between items-center ${activeSize === size ? "text-green-600" : ""}`}
+                            onClick={() => {
+                                setSelectedSize(size)
+                                setActiveSize(size)
+                            }}>
+                            <span>{size}</span>
+                            <p className="mb-4 text-gray-600">({})</p>
+                        </button>
+                    ))}
+                </div>
             </div>
         </div>
     )

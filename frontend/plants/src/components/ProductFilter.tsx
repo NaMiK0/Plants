@@ -11,9 +11,9 @@ const ProductFilter: React.FC<ProductFilterProps> = ({selectedCategory, selected
     const productsArray = React.Children.toArray(children);
 
     const filteredProducts = productsArray.filter((child:any) => {
-        const matchesCategory = selectedCategory === "All Plants" || child.props.category.includes(selectedCategory);
-        const matchesSize = selectedSize === "All" || child.props.size === selectedSize;
-        return matchesCategory && matchesSize;
+        const filteredCategory = selectedCategory === "All Plants" || child.props.category.includes(selectedCategory);
+        const filteredSize = selectedSize === "All" || child.props.size === selectedSize;
+        return filteredCategory && filteredSize;
     })
 
     const sortedProducts = [...filteredProducts].sort((a:any, b:any) => {
@@ -22,10 +22,21 @@ const ProductFilter: React.FC<ProductFilterProps> = ({selectedCategory, selected
         return 0;
     })
 
+    const categoryCount = filteredProducts.length;
+
+    const sizeFilteredProducts = filteredProducts.filter((child:any) => child.props.size === selectedSize);
+    const sizeCount = sizeFilteredProducts.length;
+
 
     return (
-        <div className="grid grid-cols-3 gap-[40px]">
-            {sortedProducts.length > 0 ? sortedProducts : <p>Nothing to show!</p>}
+        <div>
+            <p>Category Count: ({categoryCount})</p>
+            <p>Size Count: ({sizeCount})</p>
+
+            <div className="grid grid-cols-3 gap-[40px]">
+                {sortedProducts.length > 0 ? sortedProducts :
+                    <p>Nothing to show!</p>}
+            </div>
         </div>
     )
 }

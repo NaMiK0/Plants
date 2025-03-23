@@ -14,7 +14,6 @@ import ImgCard9 from "../assets/Cards/card9.png";
 import DropdownMenuHome from "./DropdownMenuHome.tsx";
 
 
-
 export default function ContentHome() {
     const [selectedCategory, setSelectedCategory] = useState<string>("All Plants");
     const [selectedSize, setSelectedSize] = useState<string>("All");
@@ -24,7 +23,7 @@ export default function ContentHome() {
     return (
         <div className="mt-[46px] flex flex-row gap-[50px]">
             <section className="w-[30%]">
-                <CategoryFilter setSelectedCategory={setSelectedCategory} setSelectedSize={setSelectedSize} />
+                <CategoryFilter setSelectedCategory={setSelectedCategory} setSelectedSize={setSelectedSize}  />
             </section>
             <section className="w-[70%] flex flex-col">
                 <nav className="flex flex-row justify-between mb-[38px]">

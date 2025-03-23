@@ -2,7 +2,7 @@ import ImgSearch from "../../assets/Header/search.png"
 import products from "./products.ts"
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence  } from "framer-motion";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Product {
     id: number;
@@ -14,7 +14,7 @@ export default function ProductSearch() {
     const [searchQuery, setSearchQuery] = useState("");
     const searchRef = useRef<HTMLDivElement>(null);
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const filteredProducts: Product[] = searchQuery
         ? products.filter((product) =>
@@ -25,7 +25,7 @@ export default function ProductSearch() {
     const handleProductClick = (id: number) => {
         setSearchQuery("");
         setIsSearchOpen(false);
-        // navigate(`/product/${id}`);
+        navigate(`/productinfo/${id}`);
     };
 
     useEffect(() => {
@@ -60,12 +60,12 @@ export default function ProductSearch() {
                         initial={{width: 0, opacity: 0}}
                         animate={{width: isSearchOpen ? 200 : 0, opacity: isSearchOpen ? 1 : 0}}
                         exit={{width: 0, opacity: 0}}
-                        transition={{duration: 0.3, ease: "easeInOut"}}
+                        transition={{duration: 0.2, ease: "easeInOut"}}
                         className="absolute top-[-5px] right-9 bg-white rounded-lg w-[200px] z-10"
                     >
                         <input
                             type="text"
-                            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-[1px] focus:black"
+                            className="w-full px-3 py-2 border rounded-[4px] focus:outline-none "
                             placeholder="Search products..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}

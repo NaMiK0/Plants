@@ -9,6 +9,7 @@ import ImgHide from "../assets/Header/Hide.png"
 import ImgShow from "../assets/Header/Show.png"
 import Modal_Auth_Log from "./Modal_Auth_Log.tsx";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import ProductSearch from "./ProductSearch/ProductSearch.tsx"
 
 
@@ -27,20 +28,21 @@ export default function Header() {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
+    const navigate = useNavigate();
 
     return (
         <div className="m-0 pt-[25px] pr-[120px] pl-[120px] pb-[0] font-['Montserrat']">
             <header className="flex flex-row justify-between content-center">
                 <img src={ImgLogo} alt="Logo" className="w-[150px] h-[34px]" />
                 <div className="flex flex-row gap-[50px] font-medium text-gray-700">
-                    <a href="#" className="hover:text-black transition decoration-300">Home</a>
+                    <a href="#" className="hover:text-black transition decoration-300" onClick={() => navigate("/")}>Home</a>
                     <a href="#" className="hover:text-black transition decoration-300">Shop</a>
                     <a href="#" className="hover:text-black transition decoration-300">Plant Care</a>
                     <a href="#" className="hover:text-black transition decoration-300">Blogs</a>
                 </div>
                 <div className="flex flex-row justify-center content-center gap-[30px]">
                     <ProductSearch/>
-                    <a href="#"><img src={ImgBasket} alt="" className="w-[30px] h-[30px]"/></a>
+                    <a href="#"><img src={ImgBasket} alt="" className="w-[30px] h-[30px]" onClick={() => navigate("/shoppingCart")}/></a>
                     <button onClick={openModal} className="flex flex-row gap-1 justify-center content-center bg-green-700
                      p-1 text-white font-['Noto Sans'] font-semibold w-[100px] h-[35px]
                       rounded-[8px] hover:bg-green-600 cursor-pointer transition duration-300">
@@ -166,7 +168,7 @@ export default function Header() {
                     </Modal_Auth_Log>
                 </div>
             </header>
-            <div className="w-full h-[1px] mt-[18px] bg-gray-300"></div>
+            <hr className="text-gray-300 mt-[13px]"/>
         </div>
     )
 }

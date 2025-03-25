@@ -1,16 +1,18 @@
-import Header from "./components/Header.tsx";
-import Slider from "./components/Slider.tsx";
-import ContentHome from "./components/ContentHome.tsx";
+import {Route, Routes, BrowserRouter} from "react-router-dom";
+import Home from "../src/components/Home.tsx"
+import ProductInfo from "./components/ProductInfo.tsx";
+import Header from "./components/Header.tsx"
+
 
 function App() {
-
-
   return (
-    <div className="m-0 pt-[25px] pr-[120px] pl-[120px] pb-[0] font-['Montserrat']">
-        <Header />
-        <Slider/>
-        <ContentHome/>
-    </div>
+    <BrowserRouter>
+        <Header/>
+        <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/productinfo" element={<ProductInfo/>}/>
+        </Routes>
+    </BrowserRouter>
   )
 }
 

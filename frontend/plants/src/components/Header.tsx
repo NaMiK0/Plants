@@ -1,5 +1,4 @@
 import ImgLogo from "../assets/Header/Logo.svg"
-import ImgSearch from "../assets/Header/search.png"
 import ImgBasket from "../assets/Header/basket.png"
 import ImgLogout from "../assets/Header/Logout.svg"
 import ImgGoogle from "../assets/Header/Google.png"
@@ -10,13 +9,12 @@ import ImgHide from "../assets/Header/Hide.png"
 import ImgShow from "../assets/Header/Show.png"
 import Modal_Auth_Log from "./Modal_Auth_Log.tsx";
 import {useState} from "react";
-
+import ProductSearch from "./ProductSearch/ProductSearch.tsx"
 
 
 
 export default function Header() {
     const [isOpenModal, setIsModalOpen] = useState(false);
-
     const openModal = () => {
         setIsModalOpen(true);
     }
@@ -26,12 +24,12 @@ export default function Header() {
     }
 
     const [isRegistering, setIsRegistering] = useState(false);
-
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
+
     return (
-        <>
+        <div className="m-0 pt-[25px] pr-[120px] pl-[120px] pb-[0] font-['Montserrat']">
             <header className="flex flex-row justify-between content-center">
                 <img src={ImgLogo} alt="Logo" className="w-[150px] h-[34px]" />
                 <div className="flex flex-row gap-[50px] font-medium text-gray-700">
@@ -41,7 +39,7 @@ export default function Header() {
                     <a href="#" className="hover:text-black transition decoration-300">Blogs</a>
                 </div>
                 <div className="flex flex-row justify-center content-center gap-[30px]">
-                    <a href="#"><img src={ImgSearch} alt="" className="w-[30px]"/></a>
+                    <ProductSearch/>
                     <a href="#"><img src={ImgBasket} alt="" className="w-[30px] h-[30px]"/></a>
                     <button onClick={openModal} className="flex flex-row gap-1 justify-center content-center bg-green-700
                      p-1 text-white font-['Noto Sans'] font-semibold w-[100px] h-[35px]
@@ -54,13 +52,19 @@ export default function Header() {
                             <a
                                 href="#"
                                 className={`font-medium text-[20px] leading-[16px] ${!isRegistering ? "text-[#46A358]" : ""}`}
-                                onClick={(e) => {e.preventDefault(); setIsRegistering(false); }}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsRegistering(false);
+                                }}
                             >Login</a>
                             <p className="text-[18px] font-thin leading-[16px] ">I</p>
                             <a
                                 href="#"
                                 className={`font-medium text-[20px] leading-[16px] ${isRegistering ? "text-[#46A358]" : ""}`}
-                                onClick={(e) => {e.preventDefault(); setIsRegistering(true); }}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsRegistering(true);
+                                }}
                             >Register</a>
                         </div>
                         <div
@@ -73,14 +77,14 @@ export default function Header() {
                             {isRegistering && (
                                 <input type="text"
                                        className="w-[300px] h-[40px] rounded-[5px] border"
-                                       style={{textIndent : "10px"}}
+                                       style={{textIndent: "10px"}}
                                        placeholder="Username"
                                        required
                                        autoComplete="username"/>
                             )}
                             <input type="email"
                                    className="w-[300px] h-[40px] rounded-[5px] border "
-                                   style={{textIndent : "10px"}}
+                                   style={{textIndent: "10px"}}
                                    placeholder={isRegistering ? "Enter" +
                                        " your email address" : "Email"}
                                    required
@@ -94,9 +98,10 @@ export default function Header() {
                                        autoComplete="current-password"/>
 
                                 <button type="button"
-                                onClick={() => setIsPasswordVisible(!isPasswordVisible)}
-                                className="absolute top-1/2 right-3 transform -translate-y-1/2">
-                                    <img src={isPasswordVisible ? ImgShow : ImgHide} alt="Hide/Show" className="w-5 h-5"/>
+                                        onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                                        className="absolute top-1/2 right-3 transform -translate-y-1/2">
+                                    <img src={isPasswordVisible ? ImgShow : ImgHide} alt="Hide/Show"
+                                         className="w-5 h-5"/>
                                 </button>
                             </div>
 
@@ -162,6 +167,6 @@ export default function Header() {
                 </div>
             </header>
             <div className="w-full h-[1px] mt-[18px] bg-gray-300"></div>
-        </>
+        </div>
     )
 }

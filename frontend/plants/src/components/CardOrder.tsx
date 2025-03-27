@@ -2,6 +2,7 @@ import {useState} from "react";
 import ImgSearch from "../assets/Cards/searchCard.svg"
 import ImgBasket from "../assets/Cards/basketCard.svg"
 import ImgLike from "../assets/Cards/like.svg"
+import { useCart } from "./Cart/ContextCart.tsx";
 
 import {motion} from "framer-motion";
 
@@ -15,8 +16,9 @@ interface  ProductCardProps {
 }
 
 
-const CardOrder: React.FC<ProductCardProps> = ({image,title,price}) => {
+const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
     const [cardActive, setCardActive] = useState(false);
+    const { addToCart } = useCart();
 
     return (
         <div className="w-[258px] h-[352px]">
@@ -38,7 +40,7 @@ const CardOrder: React.FC<ProductCardProps> = ({image,title,price}) => {
                         >
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50">
-                                <a href="#"><img src={ImgBasket} alt="Img" className="w-[20px] h-[20px] brightness-0"/></a>
+                                <a href="#" onClick={() => addToCart({ id, title, price, image, quantity: 1 })}><img src={ImgBasket} alt="Img" className="w-[20px] h-[20px] brightness-0"/></a>
                             </div>
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50">

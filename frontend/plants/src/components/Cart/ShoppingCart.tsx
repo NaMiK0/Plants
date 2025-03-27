@@ -1,6 +1,9 @@
+import { useCart } from "./ContextCart.tsx";
 
 
 function ShoppingCart() {
+    const { cart, removeFromCart } = useCart();
+
     return (
         <div  className="m-0 pr-[120px] pl-[120px] pb-[0] font-['Montserrat']">
             <div className="mt-[60px] flex flex-row gap-[86px]">
@@ -12,6 +15,21 @@ function ShoppingCart() {
                         <p>Total</p>
                     </div>
                     <hr className="text-gray-200 mt-[11px] mb-[11px]"/>
+                    {cart.length === 0 ? (
+                        <p>Your cart is empty</p>
+                    ) : (
+                        cart.map((item) => (
+                            <div key={item.id} className="flex justify-between border-b py-4">
+                                <div className="flex items-center gap-4">
+                                    <img src={item.image} alt={item.title} className="w-16 h-16" />
+                                    <p>{item.title}</p>
+                                </div>
+                                <p>${item.price}</p>
+                                <p>Qty: {item.quantity}</p>
+                                <button onClick={() => removeFromCart(item.id)} className="text-red-500">Remove</button>
+                            </div>
+                        ))
+                    )}
                 </div>
                 <div className="w-[39%]">
                     <p className="text-[18px] font-[700] text-[#3D3D3D]">Cart Totals</p>

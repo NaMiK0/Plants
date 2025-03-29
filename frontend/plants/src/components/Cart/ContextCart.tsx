@@ -12,6 +12,7 @@ interface  CartContextType {
     cart: CartItem[];
     addToCart: (item: CartItem) => void;
     removeFromCart: (id: number) => void;
+    updateCart: (id: number, newQuantity: number) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -25,14 +26,24 @@ export const useCart =() => {
 }
 
 export const  CartProvider = ({children}: {children: ReactNode}) => {
-    const [cart, setCart] = useState<CartItem[]>([]);
-
-    useEffect(() => {
+    const [cart, setCart] = useState<CartItem[]>(() => {
+        //загрузка из localStorage при первом рендеринге
         const savedCart = localStorage.getItem("cart");
-        if (savedCart) {
-            setCart(JSON.parse(savedCart));
-        }
-    }, [])
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
+
+    //сохраняем корзину из localStorage при изменении cart
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart])
+
+    const updateCart = (id: number, newQuantity: number) => {
+        setCart((prevCart) =>
+            prevCart.map((item) =>
+                item.id === id ? { ...item, quantity: Math.max(newQuantity, 1) } : item
+            )
+        );
+    };
 
     const addToCart = (item: CartItem) => {
         setCart((prevCart) => {
@@ -59,7 +70,7 @@ export const  CartProvider = ({children}: {children: ReactNode}) => {
     };
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, updateCart}}>
             {children}
         </CartContext.Provider>
     )

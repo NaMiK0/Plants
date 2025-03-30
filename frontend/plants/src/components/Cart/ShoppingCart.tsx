@@ -1,12 +1,16 @@
 import { useCart } from "./ContextCart.tsx";
 
 import ImgDeleteOrder from "../../assets/Cart/Delete.svg"
+import {useNavigate} from "react-router-dom";
 
 function ShoppingCart() {
     // @ts-ignore
     const { cart, updateCart, removeFromCart } = useCart();
 
+    const totalPrice: number = cart.reduce((sum, item) => sum + item.price*item.quantity, 0);
+    const shipingPrice: number = (totalPrice/100)* 5;
 
+    const navigate = useNavigate();
 
     return (
         <div  className="m-0 pr-[120px] pl-[120px] pb-[0] font-['Montserrat']">
@@ -34,7 +38,7 @@ function ShoppingCart() {
                                     </div>
                                 </div>
                                 <div className="w-[70px] mr-[77px] text-gray-500 font-[500] text-[16px]">
-                                    <p>${item.price}</p>
+                                    <p>${item.price.toFixed(2)}</p>
                                 </div>
                                 <div className="w-[95px] mr-[82px]">
                                     <div className="flex flex-row gap-[16px]">
@@ -56,8 +60,8 @@ function ShoppingCart() {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="w-[62px] text-[16px] mr-[30px]">
-                                    <p>${item.price * item.quantity}</p>
+                                <div className="w-[75px] text-[16px] mr-[17px]">
+                                    <p className="font-[600] text-green-700">${(item.price * item.quantity).toFixed(2)}</p>
                                 </div>
                                 <button onClick={() => removeFromCart(item.id)} className="w-[17px] h-[19px] cursor-pointer group">
                                     <img
@@ -80,12 +84,43 @@ function ShoppingCart() {
                     <p className="text-[18px] font-[700] text-[#3D3D3D]">Cart Totals</p>
                     <hr className="text-gray-200 mt-[8px] mb-[11px]"/>
                     <p className="text-[14px] mb-[8px]">Coupon Apply</p>
-                    <div className="">
+                    <div className="mb-[30px]">
                         <input type="text"
-                               className="w-[230px] h-[40px] rounded-[3px] rounded-r-[0] border-2 border-green-700 indent-[10px] text-[14px] outline-none"
+                               className="w-[75%] h-[40px] rounded-[3px] rounded-r-[0] border-2 border-green-700 indent-[10px] text-[14px] outline-none"
                                placeholder="Enter coupon code here..."
                         />
-                        <button className="w-[102px] h-[40px] bg-green-700 text-white hover:bg-green-600 cursor-pointer transition duration-300">Apply</button>
+                        <button
+                            className="w-[25%] h-[40px] bg-green-700 text-white hover:bg-green-600 cursor-pointer transition duration-300 font-[700]">Apply
+                        </button>
+                    </div>
+                    <div className="flex flex-row justify-between mb-[15px]">
+                        <p className="text-[15px]">Subtotal</p>
+                        <p className="text-[18px] font-[500] text-gray-800">${totalPrice.toFixed(2)}</p>
+                    </div>
+                    <div className="flex flex-row justify-between mb-[15px]">
+                        <p className="text-[15px]">Coupon Discount</p>
+                        <p>(-) 00.00</p>
+                    </div>
+                    <div className="flex flex-row justify-between mb-[50px]">
+                        <p className="text-[15px]">Shiping</p>
+                        <p className="text-[18px] font-[500] text-gray-800">${shipingPrice.toFixed(2)}</p>
+                    </div>
+                    <div className="flex flex-row justify-between mb-[29px]">
+                        <p className="text-[18px] font-[700] text-gray-800">Total</p>
+                        <p className="text-[18px] font-[700] text-green-700">${(shipingPrice + totalPrice).toFixed(2)}</p>
+                    </div>
+                    <button
+                        className="w-full h-[50px] bg-green-700 text-white hover:bg-green-600 cursor-pointer transition duration-300 font-[700] mb-[14px]"
+                    >
+                        Proceed To Checkout
+                    </button>
+                    <div className="flex justify-center items-center">
+                        <button
+                            className="relative text-green-700 font-[400] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[2px] after:bg-green-700 after:scale-x-0 after:transition-transform after:duration-200 hover:after:scale-x-100 cursor-pointer"
+                            onClick={() => navigate("/")}
+                        >
+                            Continue Shopping
+                        </button>
                     </div>
                 </div>
             </div>

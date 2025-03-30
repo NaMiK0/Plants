@@ -9,7 +9,7 @@ import ImgHide from "../assets/Header/Hide.png"
 import ImgShow from "../assets/Header/Show.png"
 import Modal_Auth_Log from "./Modal_Auth_Log.tsx";
 import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 import ProductSearch from "./ProductSearch/ProductSearch.tsx"
 
 
@@ -29,16 +29,33 @@ export default function Header() {
     const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     return (
         <div className="m-0 pt-[25px] pr-[120px] pl-[120px] pb-[0] font-['Montserrat']">
             <header className="flex flex-row justify-between content-center">
                 <img src={ImgLogo} alt="Logo" className="w-[150px] h-[34px]" />
                 <div className="flex flex-row gap-[50px] font-medium text-gray-700">
-                    <a href="#" className="hover:text-black transition decoration-300" onClick={() => navigate("/")}>Home</a>
-                    <a href="#" className="hover:text-black transition decoration-300">Shop</a>
-                    <a href="#" className="hover:text-black transition decoration-300">Plant Care</a>
-                    <a href="#" className="hover:text-black transition decoration-300">Blogs</a>
+                    <button
+                        onClick={() => navigate("/")}
+                        className={`relative flex cursor-pointer 
+                    ${location.pathname === "/" ? "text-green-600" : "hover:text-black transition decoration-300"}`}>
+                        Home
+                        {location.pathname === "/" && (
+                            <span
+                                className="absolute left-0 bottom-[-14px] w-full h-[4px] bg-green-700 rounded-[5px]"></span>
+                        )}
+                    </button>
+                    <button className={`relative flex cursor-pointer 
+                    ${location.pathname === "/shoppingCart" ? "text-green-600" : "hover:text-black transition decoration-300"}`}>
+                        Shop
+                        {location.pathname === "/shoppingCart" && (
+                            <span
+                                className="absolute left-0 bottom-[-14px] w-full h-[4px] bg-green-700 rounded-[5px]"></span>
+                        )}
+                    </button>
+                    <button className="hover:text-black transition decoration-300 flex cursor-pointer">Plant Care</button>
+                    <button className="hover:text-black transition decoration-300 flex cursor-pointer">Blogs</button>
                 </div>
                 <div className="flex flex-row justify-center content-center gap-[30px]">
                     <ProductSearch/>

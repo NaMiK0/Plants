@@ -110,7 +110,8 @@ export default function Slider() {
                 {`
                     
                     .swiper-pagination-bullet {
-                        background-color: #ccc;
+                        background-color: white;
+                        border: 1px green solid;
                         opacity: 1;
                         width: 10px;
                         height: 10px;

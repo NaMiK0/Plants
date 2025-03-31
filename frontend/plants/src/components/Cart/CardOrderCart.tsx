@@ -1,8 +1,8 @@
 import {useState} from "react";
-import ImgSearch from "../assets/Cards/searchCard.svg"
-import ImgBasket from "../assets/Cards/basketCard.svg"
-import ImgLike from "../assets/Cards/like.svg"
-import { useCart } from "./Cart/ContextCart.tsx";
+import ImgSearch from "../../assets/Cards/searchCard.svg"
+import ImgBasket from "../../assets/Cards/basketCard.svg"
+import ImgLike from "../../assets/Cards/like.svg"
+import { useCart } from "./ContextCart.tsx";
 
 import {motion} from "framer-motion";
 
@@ -16,14 +16,14 @@ interface  ProductCardProps {
 }
 
 
-const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
+const CardOrderCart: React.FC<ProductCardProps> = ({id, image,title,price}) => {
     const [cardActive, setCardActive] = useState(false);
     const { addToCart } = useCart();
 
     return (
-        <div className="w-[258px] h-[352px]">
+        <div className="w-[219px] h-[255px]">
             <div className="w-full h-[300px] bg-gray-100 flex justify-center items-center relative hover:cursor-pointer group" onMouseEnter={() => setCardActive(true)} onMouseLeave={() => setCardActive(false)}>
-                <img src={image} alt={title} className="w-[250px]"/>
+                <img src={image} alt={title} className="w-[212px]"/>
                 {cardActive && (
                     <>
                         <motion.div
@@ -41,19 +41,15 @@ const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50"
                             >
-                                <button onClick={() => addToCart({id, title, price, image, quantity: 1})}><img
-                                    src={ImgBasket} alt="Img"
-                                    className="w-[20px] h-[20px] brightness-0 cursor-pointer"/></button>
+                                <button onClick={() => addToCart({ id, title, price, image, quantity: 1 })}><img src={ImgBasket} alt="Img" className="w-[20px] h-[20px] brightness-0 cursor-pointer"/></button>
                             </div>
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50">
-                                <button><img src={ImgLike} alt="Img" className="w-[20px] h-[20px] cursor-pointer"/>
-                                </button>
+                                <button><img src={ImgLike} alt="Img" className="w-[20px] h-[20px] cursor-pointer"/></button>
                             </div>
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50">
-                                <button><img src={ImgSearch} alt="Img" className="w-[20px] h-[20px] cursor-pointer"/>
-                                </button>
+                                <button><img src={ImgSearch} alt="Img" className="w-[20px] h-[20px] cursor-pointer"/></button>
                             </div>
                         </motion.div>
                     </>
@@ -70,4 +66,4 @@ const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
     )
 }
 
-export default CardOrder;
+export default CardOrderCart;

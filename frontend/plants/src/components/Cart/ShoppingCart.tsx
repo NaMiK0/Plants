@@ -13,9 +13,13 @@ import ImgFooter3_2 from "../../assets/Cart/FooterCart3/Frame.svg"
 import ImgLogo from "../../assets/Header/Logo.svg"
 import ImgMap from "../../assets/Cart/FooterGgeen/map.svg"
 import ImgMessage from "../../assets/Cart/FooterGgeen/Message.svg"
-import ImgPhon from "../../assets/Cart/FooterGgeen/Phon.svg"
-
-
+import ImgPhone from "../../assets/Cart/FooterGgeen/Phone.svg"
+import ImgFacebook from "../../assets/Cart/FooterLast/Facebook.svg"
+import ImgInstagram from "../../assets/Cart/FooterLast/Instagram.svg"
+import ImgLinkedin from "../../assets/Cart/FooterLast/Linkedin.svg"
+import ImgTwitter from "../../assets/Cart/FooterLast/Twitter.svg"
+import ImgUnion from "../../assets/Cart/FooterLast/Union.svg"
+import ImgCreditCard from "../../assets/Cart/FooterLast/CreditCard.png"
 
 function ShoppingCart() {
     // @ts-ignore
@@ -227,7 +231,7 @@ function ShoppingCart() {
                 </div>
                 {/*4*/}
                 <div className="flex flex-row gap-[9px] w-[354px]">
-                    <img src={ImgPhon} alt="Phon"/>
+                    <img src={ImgPhone} alt="Phon"/>
                     <p className="text-[13px] leading-[22px] font-[400]">+77 77777 777 777</p>
                 </div>
             </div>
@@ -269,8 +273,26 @@ function ShoppingCart() {
                 </div>
                 {/*4*/}
                 <div className="w-[354px]">
-                    <p className="text-[17px] font-[700] text-gray-800 mb-[4px]">Social Media</p>
-                    {/*Продолжить...*/}
+                    <p className="text-[17px] font-[700] text-gray-800 mb-[20px]">Social Media</p>
+                    <div className="flex flex-row gap-[10px] mb-[33px]">
+                        <button
+                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                            <img src={ImgFacebook} alt="Facebook"/></button>
+                        <button
+                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                            <img src={ImgInstagram} alt="Instagram"/></button>
+                        <button
+                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                            <img src={ImgLinkedin} alt="Linkedin"/></button>
+                        <button
+                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                            <img src={ImgTwitter} alt="Twitter"/></button>
+                        <button
+                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                            <img src={ImgUnion} alt="Union"/></button>
+                    </div>
+                    <p className="text-[17px] font-[700] text-gray-800 mb-[13px]">We accept</p>
+                    <img src={ImgCreditCard} alt="CreditCard"/>
                 </div>
             </div>
 

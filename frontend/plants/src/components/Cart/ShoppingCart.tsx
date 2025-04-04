@@ -104,7 +104,7 @@ function ShoppingCart() {
                     <p className="text-[18px] font-[700] text-[#3D3D3D]">Cart Totals</p>
                     <hr className="text-gray-200 mt-[8px] mb-[11px]"/>
                     <p className="text-[14px] mb-[8px]">Coupon Apply</p>
-                    <div className="mb-[30px]">
+                    <div className="mb-[30px] flex flex-row">
                         <input type="text"
                                className="w-[75%] h-[40px] rounded-[3px] rounded-r-[0] border-2 border-green-700 indent-[10px] text-[14px] outline-none"
                                placeholder="Enter coupon code here..."
@@ -151,154 +151,203 @@ function ShoppingCart() {
             <div className="mb-[128px] flex items-center justify-center">
                 <SliderCart/>
             </div>
-            <div className="h-[250px] flex flex-row bg-gray-100 p-[25px] justify-between">
-                {/*1*/}
-                <div className="w-[225px] flex flex-col ">
-                    <div className="relative w-[74px] h-[94px] mb-[17px]">
-                        <img src={ImgFooter1_1} alt="img" className="absolute right-0 bottom-0"/>
-                        <img src={ImgFooter1_2} alt="img" className="absolute left-[18px] top-[4px]"/>
-                        <img src={ImgFooter1_3} alt="img" className="absolute left-[3px] bottom-0"/>
-                    </div>
-                    <p className="text-[17px] font-[700] text-gray-800">Garden Care</p>
-                    <p className="text-[14px] font-[400] text-gray-600 mt-[6px]">
-                        We are an online plant shop offering a wide range of cheap and trendy plants.
-                    </p>
-                </div>
-                {/*2*/}
-                <div className="w-[225px] flex flex-col ">
-                    <div className="relative w-[74px] h-[94px] mb-[17px]">
-                        <img src={ImgFooter2_1} alt="img" className="absolute right-0 bottom-0"/>
-                        <img src={ImgFooter2_2} alt="img" className="absolute left-[21px] top-[3px]"/>
-                        <img src={ImgFooter1_3} alt="img" className="absolute left-[3px] bottom-0"/>
-                    </div>
-                    <p className="text-[17px] font-[700] text-gray-800">Plant Renovation</p>
-                    <p className="text-[14px] font-[400] text-gray-600 mt-[6px]">
-                        We are an online plant shop offering a wide range of cheap and trendy plants.
-                    </p>
-                </div>
-                {/*3*/}
-                <div className="w-[225px] flex flex-col ">
-                    <div className="relative w-[74px] h-[94px] mb-[17px]">
-                        <img src={ImgFooter3_1} alt="img" className="absolute right-0 bottom-0"/>
-                        <img src={ImgFooter3_2} alt="img" className="absolute left-[20px] top-[8px]"/>
-                        <img src={ImgFooter1_3} alt="img" className="absolute left-[3px] bottom-0"/>
-                    </div>
-                    <p className="text-[17px] font-[700] text-gray-800">Watering Graden</p>
-                    <p className="text-[14px] font-[400] text-gray-600 mt-[6px]">
-                        We are an online plant shop offering a wide range of cheap and trendy plants.
-                    </p>
-                </div>
-                {/*4*/}
-                <div className="w-[354px]">
-                    <p className="text-[17px] font-[700] text-gray-800 mb-[18px]">Would you like to join newsletters?</p>
-                    <div className="">
-                        <input type="email"
-                               className="w-[75%] h-[40px] rounded-[3px] rounded-r-[0] border-2 border-green-700 indent-[10px] text-[14px] outline-none"
-                               placeholder="enter your email address..."
-                        />
-                        <button
-                            className="w-[25%] h-[40px] bg-green-700 text-white hover:bg-green-600 cursor-pointer transition duration-300 font-[700]">
-                            Join
-                        </button>
-                    </div>
-                    <p className="text-[13px] leading-[22px] font-[400] text-gray-600 mt-[17px]">
-                        We usually post offers and challenges in newsletter. We’re your online houseplant destination.
-                        We offer a wide range of houseplants and accessories shipped directly from our (green)house to yours!
-                    </p>
-                </div>
-            </div>
 
 
-            <div className="flex flex-row h-[88px] bg-green-50 justify-between items-center p-[25px] ">
-                {/*1*/}
-                <div className="w-[225px]">
-                    <img src={ImgLogo} alt="Logo" className="w-[150px] h-[34px] mr-[140px]"/>
+            <footer>
+                <div className="h-[250px] flex flex-row bg-gray-100 p-[25px] justify-between">
+                    {/*1*/}
+                    <div className="w-[225px] flex flex-col ">
+                        <div className="relative w-[74px] h-[94px] mb-[17px]">
+                            <img src={ImgFooter1_1} alt="img" className="absolute right-0 bottom-0"/>
+                            <img src={ImgFooter1_2} alt="img" className="absolute left-[18px] top-[4px]"/>
+                            <img src={ImgFooter1_3} alt="img" className="absolute left-[3px] bottom-0"/>
+                        </div>
+                        <p className="text-[17px] font-[700] text-gray-800">Garden Care</p>
+                        <p className="text-[14px] font-[400] text-gray-600 mt-[6px]">
+                            We are an online plant shop offering a wide range of cheap and trendy plants.
+                        </p>
+                    </div>
+                    {/*2*/}
+                    <div className="w-[225px] flex flex-col ">
+                        <div className="relative w-[74px] h-[94px] mb-[17px]">
+                            <img src={ImgFooter2_1} alt="img" className="absolute right-0 bottom-0"/>
+                            <img src={ImgFooter2_2} alt="img" className="absolute left-[21px] top-[3px]"/>
+                            <img src={ImgFooter1_3} alt="img" className="absolute left-[3px] bottom-0"/>
+                        </div>
+                        <p className="text-[17px] font-[700] text-gray-800">Plant Renovation</p>
+                        <p className="text-[14px] font-[400] text-gray-600 mt-[6px]">
+                            We are an online plant shop offering a wide range of cheap and trendy plants.
+                        </p>
+                    </div>
+                    {/*3*/}
+                    <div className="w-[225px] flex flex-col ">
+                        <div className="relative w-[74px] h-[94px] mb-[17px]">
+                            <img src={ImgFooter3_1} alt="img" className="absolute right-0 bottom-0"/>
+                            <img src={ImgFooter3_2} alt="img" className="absolute left-[20px] top-[8px]"/>
+                            <img src={ImgFooter1_3} alt="img" className="absolute left-[3px] bottom-0"/>
+                        </div>
+                        <p className="text-[17px] font-[700] text-gray-800">Watering Graden</p>
+                        <p className="text-[14px] font-[400] text-gray-600 mt-[6px]">
+                            We are an online plant shop offering a wide range of cheap and trendy plants.
+                        </p>
+                    </div>
+                    {/*4*/}
+                    <div className="w-[354px]">
+                        <p className="text-[17px] font-[700] text-gray-800 mb-[18px]">Would you like to join
+                            newsletters?</p>
+                        <div className="mb-[17px] flex flex-row">
+                            <input type="email"
+                                   className="w-[75%] h-[40px] rounded-[3px] rounded-r-[0] border-2 border-green-700 indent-[10px] text-[14px] outline-none"
+                                   placeholder="enter your email address..."
+                            />
+                            <button
+                                className="w-[25%] h-[40px] bg-green-700 text-white hover:bg-green-600 cursor-pointer transition duration-300 font-[700]">
+                                Join
+                            </button>
+                        </div>
+                        <p className="text-[13px] leading-[22px] font-[400] text-gray-600">
+                            We usually post offers and challenges in newsletter. We’re your online houseplant
+                            destination.
+                            We offer a wide range of houseplants and accessories shipped directly from our (green)house
+                            to yours!
+                        </p>
+                    </div>
                 </div>
-                {/*2*/}
-                <div className="flex flex-row gap-[9px] w-[225px]">
-                    <img src={ImgMap} alt="Map"/>
-                    <p className="text-[13px] leading-[22px] font-[400]">
-                        70 West Buckingham Ave. <br/>
-                        Farmingdale, NY 11735
-                    </p>
-                </div>
-                {/*3*/}
-                <div className="flex flex-row gap-[9px] w-[225px]">
-                    <img src={ImgMessage} alt="Message"/>
-                    <p className="text-[13px] leading-[22px] font-[400]">
-                        contact@contact.com
-                    </p>
-                </div>
-                {/*4*/}
-                <div className="flex flex-row gap-[9px] w-[354px]">
-                    <img src={ImgPhone} alt="Phon"/>
-                    <p className="text-[13px] leading-[22px] font-[400]">+77 77777 777 777</p>
-                </div>
-            </div>
 
 
-            <div className="flex flex-row h-[236px] bg-gray-100 p-[25px] justify-between">
-                {/*1*/}
-                <div className="w-[225px] flex flex-col ">
-                    <p className="text-[17px] font-[700] text-gray-800 mb-[4px]">My Account</p>
-                    <div className="flex flex-col gap-[4px] items-start">
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">My Account</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Our stores</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Contact us</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Career</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Specials</button>
+                <div className="flex flex-row h-[88px] bg-green-50 justify-between items-center p-[25px] ">
+                    {/*1*/}
+                    <div className="w-[225px]">
+                        <img src={ImgLogo} alt="Logo" className="w-[150px] h-[34px] mr-[140px]"/>
+                    </div>
+                    {/*2*/}
+                    <div className="flex flex-row gap-[9px] w-[225px]">
+                        <img src={ImgMap} alt="Map"/>
+                        <p className="text-[13px] leading-[22px] font-[400]">
+                            70 West Buckingham Ave. <br/>
+                            Farmingdale, NY 11735
+                        </p>
+                    </div>
+                    {/*3*/}
+                    <div className="flex flex-row gap-[9px] w-[225px]">
+                        <img src={ImgMessage} alt="Message"/>
+                        <p className="text-[13px] leading-[22px] font-[400]">
+                            contact@contact.com
+                        </p>
+                    </div>
+                    {/*4*/}
+                    <div className="flex flex-row gap-[9px] w-[354px]">
+                        <img src={ImgPhone} alt="Phon"/>
+                        <p className="text-[13px] leading-[22px] font-[400]">+77 77777 777 777</p>
                     </div>
                 </div>
-                {/*2*/}
-                <div className="w-[225px] flex flex-col">
-                    <p className="text-[17px] font-[700] text-gray-800 mb-[4px]">Help & Guide</p>
-                    <div className="flex flex-col gap-[4px] items-start">
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Help Center</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">How to Buy</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Shipping & Delivery</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Product Policy</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">How to Return</button>
-                    </div>
-                </div>
-                {/*3*/}
-                <div className="w-[225px] flex flex-col ">
-                    <p className="text-[17px] font-[700] text-gray-800 mb-[4px]">Categories</p>
-                    <div className="flex flex-col gap-[4px] items-start">
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">House Plants</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Potter Plants</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Seeds</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Small Plants</button>
-                        <button className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Accessories</button>
-                    </div>
-                </div>
-                {/*4*/}
-                <div className="w-[354px]">
-                    <p className="text-[17px] font-[700] text-gray-800 mb-[20px]">Social Media</p>
-                    <div className="flex flex-row gap-[10px] mb-[33px]">
-                        <button
-                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
-                            <img src={ImgFacebook} alt="Facebook"/></button>
-                        <button
-                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
-                            <img src={ImgInstagram} alt="Instagram"/></button>
-                        <button
-                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
-                            <img src={ImgLinkedin} alt="Linkedin"/></button>
-                        <button
-                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
-                            <img src={ImgTwitter} alt="Twitter"/></button>
-                        <button
-                            className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
-                            <img src={ImgUnion} alt="Union"/></button>
-                    </div>
-                    <p className="text-[17px] font-[700] text-gray-800 mb-[13px]">We accept</p>
-                    <img src={ImgCreditCard} alt="CreditCard"/>
-                </div>
-            </div>
 
-            <div className="flex flex-row justify-center items-center mt-[8px]">
-                <p className="text-[14px] leading-[30px] font-[400]">© 2021 GreenShop. All Rights Reserved.</p>
-            </div>
+
+                <div className="flex flex-row h-[236px] bg-gray-100 p-[25px] justify-between">
+                    {/*1*/}
+                    <div className="w-[225px] flex flex-col ">
+                        <p className="text-[17px] font-[700] text-gray-800 mb-[4px]">My Account</p>
+                        <div className="flex flex-col gap-[4px] items-start">
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">My
+                                Account
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Our
+                                stores
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Contact
+                                us
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Career
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Specials
+                            </button>
+                        </div>
+                    </div>
+                    {/*2*/}
+                    <div className="w-[225px] flex flex-col">
+                        <p className="text-[17px] font-[700] text-gray-800 mb-[4px]">Help & Guide</p>
+                        <div className="flex flex-col gap-[4px] items-start">
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Help
+                                Center
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">How
+                                to Buy
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Shipping
+                                & Delivery
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Product
+                                Policy
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">How
+                                to Return
+                            </button>
+                        </div>
+                    </div>
+                    {/*3*/}
+                    <div className="w-[225px] flex flex-col ">
+                        <p className="text-[17px] font-[700] text-gray-800 mb-[4px]">Categories</p>
+                        <div className="flex flex-col gap-[4px] items-start">
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">House
+                                Plants
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Potter
+                                Plants
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Seeds
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Small
+                                Plants
+                            </button>
+                            <button
+                                className="text-[14px] text-black leading-[30px] font-[400] cursor-pointer hover:text-green-600 transition duration-300">Accessories
+                            </button>
+                        </div>
+                    </div>
+                    {/*4*/}
+                    <div className="w-[354px]">
+                        <p className="text-[17px] font-[700] text-gray-800 mb-[20px]">Social Media</p>
+                        <div className="flex flex-row gap-[10px] mb-[33px]">
+                            <button
+                                className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                                <img src={ImgFacebook} alt="Facebook"/></button>
+                            <button
+                                className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                                <img src={ImgInstagram} alt="Instagram"/></button>
+                            <button
+                                className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                                <img src={ImgLinkedin} alt="Linkedin"/></button>
+                            <button
+                                className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                                <img src={ImgTwitter} alt="Twitter"/></button>
+                            <button
+                                className="w-[30px] h-[30px] border-1 border-[#46A35833] rounded-[5px] flex justify-center items-center cursor-pointer hover:bg-gray-300 transition duration-300">
+                                <img src={ImgUnion} alt="Union"/></button>
+                        </div>
+                        <p className="text-[17px] font-[700] text-gray-800 mb-[13px]">We accept</p>
+                        <img src={ImgCreditCard} alt="CreditCard"/>
+                    </div>
+                </div>
+
+                <div className="flex flex-row justify-center items-center mt-[8px]">
+                    <p className="text-[14px] leading-[30px] font-[400]">© 2021 GreenShop. All Rights Reserved.</p>
+                </div>
+            </footer>
+
         </div>
     )
 }

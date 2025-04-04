@@ -1,32 +1,27 @@
 import React from "react";
 import {useState} from "react";
+import PriceFilter from "./PriceFilter.tsx";
 
 interface CategoryFilterProps {
     setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
     setSelectedSize: React.Dispatch<React.SetStateAction<string>>;
+    categoryCount: Record<string, number>;
+    sizeCount: Record<string, number>;
+    onApplyFilter: (min: number, max: number) => void;
 }
 
-const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, setSelectedSize })=> {
+const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, setSelectedSize, categoryCount, sizeCount, onApplyFilter })=> {
 
     const categories=["All Plants", "House Plants", "Potter Plants", "Seeds", "Small" +
     " Plants", "Big Plants", "Succulents", "Terrariums", "Gardening", "Accessories"];
 
     const size = ["All", "Small", "Medium", "Large"];
 
-    const [minPrice, setMinPrice] = useState<string>("");
-    const [maxPrice, setMaxPrice] = useState<string>("");
     const [activeCategory, setActiveCategory] = useState<string>("All Plants");
     const [activeSize, setActiveSize] = useState<string>("All");
 
-    const handlePriceBlur = () => {
-        if (minPrice !== "" && maxPrice !== "" && Number(minPrice) > Number(maxPrice)) {
-            setMinPrice(maxPrice);
-            setMaxPrice(minPrice);
-        }
-    };
-
     return (
-        <div className="flex flex-col gap-4 mb-4 bg-gray-100 pl-4 pt-2">
+        <div className="flex flex-col gap-4 bg-gray-100 pl-4 pt-2">
             <h2 className="font-semibold text-lg mb-2">Categories</h2>
             <div className="ml-4 flex flex-col gap-2">
                 {categories.map(category => (
@@ -38,41 +33,12 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, se
                             setActiveCategory(category);
                         }}>
                         <span>{category}</span>
-                        <p className="mb-4 text-gray-600">({})</p>
+                        <p className="mb-4 text-gray-600">({categoryCount[category] || 0 })</p>
                     </button>
                 ))}
             </div>
 
-            <div className="flex flex-col gap-4 mt-4 w-full ">
-                <h2 className="font-semibold text-lg mb-2">Price, ₽</h2>
-                <div className="ml-2 flex gap-2">
-                    <input
-                        type="number"
-                        value={minPrice}
-                        onChange={(e) => setMinPrice(e.target.value)}
-                        onBlur={handlePriceBlur}
-                        className="border p-2 w-30 text-center ml-2"
-                        placeholder="from"
-                        min="0"
-                        max="1000000"
-                    />
-                    <input
-                        type="number"
-                        value={maxPrice}
-                        onChange={(e) => setMaxPrice(e.target.value)}
-                        onBlur={handlePriceBlur}
-                        className="border p-2 w-30 text-center ml-2"
-                        placeholder="to"
-                        min="0"
-                        max="1000000"
-                    />
-                </div>
-                <button
-                    className="bg-green-500 text-white px-4 py-2 ml-4 rounded w-[150px]"
-                >
-                    Filter
-                </button>
-            </div>
+            <PriceFilter onApplyFilter={onApplyFilter}/>
 
             <div className="flex flex-col gap-2">
                 <h2 className="font-semibold text-lg mb-2">Size</h2>
@@ -86,7 +52,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, se
                                 setActiveSize(size)
                             }}>
                             <span>{size}</span>
-                            <p className="mb-4 text-gray-600">({})</p>
+                            <p className="mb-4 text-gray-600">({sizeCount[size] || 0 })</p>
                         </button>
                     ))}
                 </div>

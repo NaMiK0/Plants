@@ -1,7 +1,7 @@
 import CardOrder from "./CardOrder.tsx";
 import ProductFilter from "./ProductFilter.tsx";
 import CategoryFilter from "./CategoryFilter.tsx";
-import { useState } from "react";
+import {useState} from "react";
 import ImgCard1 from "../assets/Cards/card1.png";
 import ImgCard2 from "../assets/Cards/card2.png";
 import ImgCard3 from "../assets/Cards/card3.png";
@@ -12,18 +12,23 @@ import ImgCard7 from "../assets/Cards/card7.png";
 import ImgCard8 from "../assets/Cards/card8.png";
 import ImgCard9 from "../assets/Cards/card9.png";
 import DropdownMenuHome from "./DropdownMenuHome.tsx";
+import SaleBanner from "./SaleBanner.tsx";
 
 
 export default function ContentHome() {
     const [selectedCategory, setSelectedCategory] = useState<string>("All Plants");
     const [selectedSize, setSelectedSize] = useState<string>("All");
     const [sortOrder, setSortOrder] = useState<"default" | "asc" | "desc">("default");
+    const [categoryCount, setCategoryCount] = useState({});
+    const [sizeCount, setSizeCount] = useState({});
+    const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: 100000 });
 
 
     return (
         <div className="mt-[46px] flex flex-row gap-[50px]">
             <section className="w-[30%]">
-                <CategoryFilter setSelectedCategory={setSelectedCategory} setSelectedSize={setSelectedSize}  />
+                <CategoryFilter setSelectedCategory={setSelectedCategory} setSelectedSize={setSelectedSize} categoryCount={categoryCount} sizeCount={sizeCount} onApplyFilter={setPriceRange} />
+                <SaleBanner/>
             </section>
             <section className="w-[70%] flex flex-col">
                 <nav className="flex flex-row justify-between mb-[38px]">
@@ -48,6 +53,11 @@ export default function ContentHome() {
                         selectedCategory={selectedCategory}
                         selectedSize={selectedSize}
                         sortOrder={sortOrder}
+                        onCountUpdate={(categoryData, sizeData) =>{
+                            setCategoryCount(categoryData);
+                            setSizeCount(sizeData);
+                        }}
+                        priceRange={priceRange}
                     >
                         <CardOrder
                             id={1}

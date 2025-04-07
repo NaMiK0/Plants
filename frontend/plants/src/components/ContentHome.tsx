@@ -11,6 +11,7 @@ import ImgCard6 from "../assets/Cards/card6.png";
 import ImgCard7 from "../assets/Cards/card7.png";
 import ImgCard8 from "../assets/Cards/card8.png";
 import ImgCard9 from "../assets/Cards/card9.png";
+import ImgArrow from "../assets/Cart/right-arrow.png"
 import DropdownMenuHome from "./DropdownMenuHome.tsx";
 
 
@@ -24,6 +25,7 @@ export default function ContentHome() {
     //Пагинация
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 9; // Количество карточек на одной странице
+
 
 
 
@@ -52,6 +54,8 @@ export default function ContentHome() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
 
+    const totalPages = Math.ceil(products.length / itemsPerPage);
+
     //фун-ия смены страницы
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -61,7 +65,7 @@ export default function ContentHome() {
 
                 <CategoryFilter setSelectedCategory={setSelectedCategory} setSelectedSize={setSelectedSize} />
             </section>
-            <section className="w-[70%] flex flex-col">
+            <section className="w-[70%] flex flex-col mb-[250px]">
                 <nav className="flex flex-row justify-between mb-[38px]">
                     <div className="flex flex-row items-center gap-[40px]">
                         {["All Plants", "New Arrivals", "Sale"].map((category) => (
@@ -100,13 +104,13 @@ export default function ContentHome() {
                 </div>
 
                 {/*Пагинация*/}
-                <div className="flex justify-center mt-6">
+                <div className="flex justify-end mt-6">
                     <ul className="flex items-center gap-2">
-                        {Array.from({ length: Math.ceil(products.length / itemsPerPage) }, (_, index) => (
-                            <li key={index}>
+                        {Array.from({length: Math.ceil(products.length / itemsPerPage)}, (_, index) => (
+                            <li id="12" key={index} className="flex flex-row">
                                 <button
                                     onClick={() => paginate(index + 1)}
-                                    className={`w-8 h-8 flex items-center justify-center border rounded cursor-pointer ${
+                                    className={`w-[35px] h-[35px] flex items-center justify-center border rounded cursor-pointer ${
                                         currentPage === index + 1 ? "bg-green-600 text-white" : "border-gray-300 text-gray-700"
                                     }`}
                                 >
@@ -114,9 +118,19 @@ export default function ContentHome() {
                                 </button>
                             </li>
                         ))}
+                        <button
+                            className={`w-[35px] h-[35px] flex items-center justify-center border rounded border-gray-300 text-gray-700
+                            ${(currentPage < totalPages) ? " cursor-pointer bg-white" : "bg-gray-300"}`}
+                            onClick={() => {
+                                if(currentPage < totalPages) {
+                                    paginate(currentPage + 1);
+                                }
+                            }}
+                            disabled={currentPage === totalPages}
+                        ><img className="w-[11px]" src={ImgArrow} alt="Arrow"/>
+                        </button>
                     </ul>
                 </div>
-
             </section>
         </div>
     );

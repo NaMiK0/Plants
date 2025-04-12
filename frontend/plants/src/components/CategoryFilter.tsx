@@ -12,10 +12,10 @@ interface CategoryFilterProps {
 
 const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, setSelectedSize, categoryCount, sizeCount, onApplyFilter })=> {
 
-    const categories=["All Plants", "House Plants", "Potter Plants", "Seeds", "Small" +
+    const categories=["House Plants", "Potter Plants", "Seeds", "Small" +
     " Plants", "Big Plants", "Succulents", "Terrariums", "Gardening", "Accessories"];
 
-    const size = ["All", "Small", "Medium", "Large"];
+    const size = ["Small", "Medium", "Large"];
 
     const [activeCategory, setActiveCategory] = useState<string>("All Plants");
     const [activeSize, setActiveSize] = useState<string>("All");
@@ -29,9 +29,13 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, se
                         key={category}
                         className={`px-4 py-2 flex justify-between items-center ${activeCategory === category ? "text-green-600" : ""}`}
                         onClick={() => {
-                            setSelectedCategory(category);
-                            setActiveCategory(category);
-                        }}>
+                            if(activeCategory === category) {
+                                setActiveCategory("All Plants");
+                                setSelectedCategory("All Plants");
+                            } else {
+                                setActiveCategory(category);
+                                setSelectedCategory(category);
+                            }}}>
                         <span>{category}</span>
                         <p className="mb-4 text-gray-600">({categoryCount[category] || 0 })</p>
                     </button>
@@ -48,9 +52,13 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, se
                             key={size}
                             className={`px-4 py-2 flex justify-between items-center ${activeSize === size ? "text-green-600" : ""}`}
                             onClick={() => {
-                                setSelectedSize(size)
-                                setActiveSize(size)
-                            }}>
+                                if(activeSize === size) {
+                                    setActiveSize("All");
+                                    setSelectedSize("All");
+                                } else {
+                                    setActiveSize(size);
+                                    setSelectedSize(size);
+                                }}}>
                             <span>{size}</span>
                             <p className="mb-4 text-gray-600">({sizeCount[size] || 0 })</p>
                         </button>

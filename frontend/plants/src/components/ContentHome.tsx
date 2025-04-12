@@ -1,7 +1,7 @@
 import CardOrder from "./CardOrder.tsx";
 import ProductFilter from "./ProductFilter.tsx";
 import CategoryFilter from "./CategoryFilter.tsx";
-import {useState} from "react";
+import {useCallback, useState} from "react";
 import ImgCard1 from "../assets/Cards/card1.png";
 import ImgCard2 from "../assets/Cards/card2.png";
 import ImgCard3 from "../assets/Cards/card3.png";
@@ -14,6 +14,7 @@ import ImgCard9 from "../assets/Cards/card9.png";
 import DropdownMenuHome from "./DropdownMenuHome.tsx";
 import SaleBanner from "./SaleBanner.tsx";
 
+type CountData = Record<string, number>;
 
 export default function ContentHome() {
     const [selectedCategory, setSelectedCategory] = useState<string>("All Plants");
@@ -23,11 +24,15 @@ export default function ContentHome() {
     const [sizeCount, setSizeCount] = useState({});
     const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: 100000 });
 
+    const handleCountUpdate = useCallback((categoryData: CountData, sizeData: CountData) => {
+        setCategoryCount(categoryData);
+        setSizeCount(sizeData);
+    }, []);
 
     return (
         <div className="mt-[46px] flex flex-row gap-[50px]">
             <section className="w-[30%]">
-                <CategoryFilter setSelectedCategory={setSelectedCategory} setSelectedSize={setSelectedSize} categoryCount={categoryCount} sizeCount={sizeCount} onApplyFilter={setPriceRange} />
+                <CategoryFilter setSelectedCategory={setSelectedCategory} setSelectedSize={setSelectedSize} categoryCount={categoryCount} sizeCount={sizeCount} onApplyFilter={(min, max) => setPriceRange({ min, max })} />
                 <SaleBanner/>
             </section>
             <section className="w-[70%] flex flex-col">
@@ -53,10 +58,7 @@ export default function ContentHome() {
                         selectedCategory={selectedCategory}
                         selectedSize={selectedSize}
                         sortOrder={sortOrder}
-                        onCountUpdate={(categoryData, sizeData) =>{
-                            setCategoryCount(categoryData);
-                            setSizeCount(sizeData);
-                        }}
+                        onCountUpdate={handleCountUpdate}
                         priceRange={priceRange}
                     >
                         <CardOrder

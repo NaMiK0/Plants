@@ -38,7 +38,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, se
                 ))}
             </div>
 
-            <PriceFilter onApplyFilter={onApplyFilter}/>
+            <PriceFilter  onApplyFilter={(min, max) => {onApplyFilter(min, max);}}/>
 
             <div className="flex flex-col gap-2">
                 <h2 className="font-semibold text-lg mb-2">Size</h2>

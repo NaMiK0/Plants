@@ -10,8 +10,7 @@ import ImgShow from "../assets/Header/Show.png"
 import Modal_Auth_Log from "./Modal_Auth_Log.tsx";
 import {useState} from "react";
 import {useNavigate, useLocation} from "react-router-dom";
-import ProductSearch from "./ProductSearch/ProductSearch.tsx"
-
+import ProductSearch from "./ProductSearch/ProductSearch.tsx";
 
 
 export default function Header() {
@@ -55,7 +54,11 @@ export default function Header() {
                         )}
                     </button>
                     <button className="hover:text-black transition decoration-300 flex cursor-pointer">Plant Care</button>
-                    <button className="hover:text-black transition decoration-300 flex cursor-pointer">Blogs</button>
+                    <button
+                        className="hover:text-black transition decoration-300 flex cursor-pointer"
+                    >
+                        Blogs
+                    </button>
                 </div>
                 <div className="flex flex-row justify-center content-center gap-[30px]">
                     <ProductSearch/>

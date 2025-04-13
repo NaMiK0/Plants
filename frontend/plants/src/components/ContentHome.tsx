@@ -38,6 +38,8 @@ import ImgCreditCard from "../assets/Cart/FooterLast/CreditCard.png";
 
 
 
+
+
 export default function ContentHome() {
     const [selectedCategory, setSelectedCategory] = useState<string>("All Plants");
     const [selectedSize, setSelectedSize] = useState<string>("All");
@@ -447,6 +449,7 @@ export default function ContentHome() {
                     <p className="text-[14px] leading-[30px] font-[400]">© 2021 GreenShop. All Rights Reserved.</p>
                 </div>
             </footer>
+
         </>
     );
 }

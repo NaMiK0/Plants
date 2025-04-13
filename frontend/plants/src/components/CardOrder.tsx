@@ -4,7 +4,9 @@ import ImgBasket from "../assets/Cards/basketCard.svg"
 import ImgLike from "../assets/Cards/like.svg"
 import { useCart } from "./Cart/ContextCart.tsx";
 
+
 import {motion} from "framer-motion";
+import Alert1 from "./Alert1.tsx";
 
 interface  ProductCardProps {
     id: number;
@@ -19,6 +21,12 @@ interface  ProductCardProps {
 const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
     const [cardActive, setCardActive] = useState(false);
     const { addToCart } = useCart();
+
+    // Добавление Alert
+    const [showAlert, setShowAlert] = useState(false);
+
+
+
 
     return (
         <div className="w-[258px] h-[352px]">
@@ -41,9 +49,13 @@ const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50"
                             >
-                                <button onClick={() => addToCart({id, title, price, image, quantity: 1})}><img
+                                <button onClick={() => {
+                                    addToCart({id, title, price, image, quantity: 1})
+                                    setShowAlert(true)
+                                }}><img
                                     src={ImgBasket} alt="Img"
-                                    className="w-[20px] h-[20px] brightness-0 cursor-pointer"/></button>
+                                    className="w-[20px] h-[20px] brightness-0 cursor-pointer"/>
+                                </button>
                             </div>
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50">
@@ -66,7 +78,9 @@ const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
             <div>
                 <p className="text-green-600 font-bold">${price.toFixed(2)}</p>
             </div>
+            {showAlert && <Alert1 onClose={() => setShowAlert(false)} />}
         </div>
+
     )
 }
 

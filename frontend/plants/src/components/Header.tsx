@@ -50,7 +50,9 @@ export default function Header() {
                         Shop
                         {location.pathname === "/shoppingCart" && (
                             <span
-                                className="absolute left-0 bottom-[-14px] w-full h-[4px] bg-green-700 rounded-[5px]"></span>
+                                className="absolute left-0 bottom-[-14px] w-full h-[4px] bg-green-700 rounded-[5px]"
+                            >
+                            </span>
                         )}
                     </button>
                     <button className="hover:text-black transition decoration-300 flex cursor-pointer">Plant Care</button>

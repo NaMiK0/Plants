@@ -1,5 +1,5 @@
 import ImgSearch from "../../assets/Header/search.png"
-import products from "./products.ts"
+import products from "./products.tsx"
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence  } from "framer-motion";
 import { useNavigate } from "react-router-dom";

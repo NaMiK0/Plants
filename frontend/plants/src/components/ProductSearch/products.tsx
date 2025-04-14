@@ -7,8 +7,16 @@ import ImgCard6 from "../../assets/Cards/card6.png";
 import ImgCard7 from "../../assets/Cards/card7.png";
 import ImgCard8 from "../../assets/Cards/card8.png";
 import ImgCard9 from "../../assets/Cards/card9.png";
+export interface Product {
+    id: number;
+    category: string[];
+    image: string;
+    title: string;
+    price: number;
+    size: string;
+}
 
-const products = [
+export const products: Product[] = [
     { id: 1, category: ["House Plants", "New Arrivals"], image: ImgCard1, title: "Aluminum Plant", price: 179, size: "Small" },
     { id: 2, category: ["Potter Plants"], image: ImgCard2, title: "Barberton Daisy", price: 119, size: "Medium" },
     { id: 3, category: ["Seeds", "New Arrivals"], image: ImgCard3, title: "Angel Wing Begonia", price: 169, size: "Large" },
@@ -27,4 +35,3 @@ const products = [
     { id: 16, category: ["House Plants", "New Arrivals"], image: ImgCard1, title: "Aluminum Plant", price: 179, size: "Small" },
 ];
 
-export default products;

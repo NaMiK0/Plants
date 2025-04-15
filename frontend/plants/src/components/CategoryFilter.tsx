@@ -1,90 +1,69 @@
 import React from "react";
 import {useState} from "react";
+import PriceFilter from "./PriceFilter.tsx";
 
 interface CategoryFilterProps {
     setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
     setSelectedSize: React.Dispatch<React.SetStateAction<string>>;
+    categoryCount: Record<string, number>;
+    sizeCount: Record<string, number>;
+    onApplyFilter: (min: number, max: number) => void;
 }
 
-const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, setSelectedSize })=> {
+const CategoryFilter: React.FC<CategoryFilterProps> = ({ setSelectedCategory, setSelectedSize, categoryCount, sizeCount, onApplyFilter })=> {
 
-    const categories=["All Plants", "House Plants", "Potter Plants", "Seeds", "Small" +
+    const categories=["House Plants", "Potter Plants", "Seeds", "Small" +
     " Plants", "Big Plants", "Succulents", "Terrariums", "Gardening", "Accessories"];
 
-    const size = ["All", "Small", "Medium", "Large"];
+    const size = ["Small", "Medium", "Large"];
 
-    const [minPrice, setMaxPrice] = useState(39);
-    const [maxPrice, setMinPrice] = useState(199);
-
-    const handleMinChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    {
-        const value = Number(event.target.value);
-        if(value < maxPrice) setMinPrice(value);
-    };
-
-    const handleMaxChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    {
-        const value = Number(event.target.value);
-        if(value > minPrice) setMaxPrice(value);
-    };
+    const [activeCategory, setActiveCategory] = useState<string>("All Plants");
+    const [activeSize, setActiveSize] = useState<string>("All");
 
     return (
-        <div className="flex flex-col gap-4 mb-4">
-            {categories.map(category => (
-                <button
-                    key={category}
-                    className="px-4 py-2 border bg-blue-200"
-                    onClick={() => setSelectedCategory(category)}>
-                    {category}
-                </button>
-            ))}
+        <div className="flex flex-col gap-4 bg-gray-100 pl-4 pt-2">
+            <h2 className="font-semibold text-lg mb-2">Categories</h2>
+            <div className="ml-4 flex flex-col gap-2">
+                {categories.map(category => (
+                    <button
+                        key={category}
+                        className={`px-4 py-2 flex justify-between items-center ${activeCategory === category ? "text-green-600" : ""}`}
+                        onClick={() => {
+                            if(activeCategory === category) {
+                                setActiveCategory("All Plants");
+                                setSelectedCategory("All Plants");
+                            } else {
+                                setActiveCategory(category);
+                                setSelectedCategory(category);
+                            }}}>
+                        <span>{category}</span>
+                        <p className="mb-4 text-gray-600">({categoryCount[category] || 0 })</p>
+                    </button>
+                ))}
+            </div>
 
-            {size.map(size => (
-                <button
-                key={size}
-                className="px-4 py-2 border"
-                onClick={() => setSelectedSize(size)}>
-                    {size}
-                </button>
-            ))}
-            <div className="flex flex-col gap-4 mt-4 w-full max-w-[300px]">
-                <h1>Price Range</h1>
-                <div className="relative w-full">
-                    <div className="absolute top-1/2 w-full h-1 bg-gray-300 rounded-md"></div>
-                    <div
-                        className="absolute top-1/2 h-1 bg-green-500 rounded-md"
-                        style={{
-                            left: `${((minPrice - 39) / (199 - 39)) * 100}%`,
-                            right: `${100 - ((maxPrice - 39) / (199 - 39)) * 100}%`,
-                        }}
-                    ></div>
+            <PriceFilter  onApplyFilter={(min, max) => {onApplyFilter(min, max);}}/>
 
-                    <input
-                        type="range"
-                        className="absolute w-full appearance-none bg-transparent pointer-events-none"
-                        value={minPrice}
-                        min="39"
-                        max="199"
-                        onChange={handleMinChange}
-                        style={{ zIndex: 2}}
-                    />
-
-                    <input
-                        type="range"
-                        className="absolute w-full appearance-none bg-transparent pointer-events-non"
-                        value={maxPrice}
-                        min="39"
-                        max="199"
-                        onChange={handleMaxChange}
-                        style={{ zIndex: 1}}
-                    />
-
+            <div className="flex flex-col gap-2">
+                <h2 className="font-semibold text-lg mb-2">Size</h2>
+                <div className="ml-4 flex flex-col gap-2">
+                    {size.map(size => (
+                        <button
+                            key={size}
+                            className={`px-4 py-2 flex justify-between items-center ${activeSize === size ? "text-green-600" : ""}`}
+                            onClick={() => {
+                                if(activeSize === size) {
+                                    setActiveSize("All");
+                                    setSelectedSize("All");
+                                } else {
+                                    setActiveSize(size);
+                                    setSelectedSize(size);
+                                }}}>
+                            <span>{size}</span>
+                            <p className="mb-4 text-gray-600">({sizeCount[size] || 0 })</p>
+                        </button>
+                    ))}
                 </div>
-                <p>Price: <span className="font-bold">${minPrice}</span> - <span
-                    className="font-bold">${maxPrice}</span></p>
-                <button
-                    className="bg-green-500 text-white px-4 py-2 rounded">Filter
-                </button>
             </div>
         </div>
     )

@@ -156,7 +156,8 @@ export default function Header() {
                             )}
 
                             <button type="submit"
-                                    className="w-[300px] h-[45px] rounded-[5px] border bg-[#46A358] text-center text-white">
+                                    className="w-[300px] h-[45px] rounded-[5px] border bg-[#46A358] text-center text-white"
+                                    onClick={() => navigate("/account")}>
                                 <span
                                     className="text-[16px] leading-[16px] font-bold">{isRegistering ? "Register" : "Login"}</span>
                             </button>

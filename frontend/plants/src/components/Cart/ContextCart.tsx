@@ -1,11 +1,12 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-interface  CartItem {
+interface CartItem {
     id: number;
     title: string;
     price: number;
     image: string;
     quantity: number;
+    size: string | null;
 }
 
 interface  CartContextType {
@@ -47,17 +48,29 @@ export const  CartProvider = ({children}: {children: ReactNode}) => {
 
     const addToCart = (item: CartItem) => {
         setCart((prevCart) => {
-            const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
-            let updatedCart;
+            // Нормализуем размер (если не выбран, сохраняем null)
+            const normalizedItem = {
+                ...item,
+                size: item.size || null
+            };
+
+            // Ищем существующий товар с учетом размера
+            const existingItem = prevCart.find(cartItem =>
+                cartItem.id === normalizedItem.id &&
+                cartItem.size === normalizedItem.size
+            );
+
             if (existingItem) {
-                updatedCart = prevCart.map((cartItem) =>
-                    cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+                // Обновляем количество существующего товара
+                return prevCart.map(cartItem =>
+                    cartItem.id === normalizedItem.id && cartItem.size === normalizedItem.size
+                        ? { ...cartItem, quantity: cartItem.quantity + normalizedItem.quantity }
+                        : cartItem
                 );
-            } else {
-                updatedCart = [...prevCart, { ...item, quantity: 1 }];
             }
-            localStorage.setItem("cart", JSON.stringify(updatedCart));
-            return updatedCart;
+
+            // Добавляем новый товар
+            return [...prevCart, normalizedItem];
         });
     };
 

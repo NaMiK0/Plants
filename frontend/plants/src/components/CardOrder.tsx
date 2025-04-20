@@ -50,7 +50,7 @@ const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50"
                             >
                                 <button onClick={() => {
-                                    addToCart({id, title, price, image, quantity: 1})
+                                    addToCart({id, title, price, image, quantity: 1, size: null})
                                     setShowAlert(true)
                                 }}><img
                                     src={ImgBasket} alt="Img"

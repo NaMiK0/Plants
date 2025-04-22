@@ -1,6 +1,6 @@
 import {Swiper, SwiperSlide} from "swiper/react";
 import {A11y, Autoplay, Pagination} from "swiper/modules";
-import CardOrderCart from "./CardOrderCart.tsx";
+
 import ImgCard1 from "../../assets/Cards/card1.png";
 import ImgCard2 from "../../assets/Cards/card2.png";
 import ImgCard3 from "../../assets/Cards/card3.png";
@@ -33,7 +33,7 @@ export default  function SliderCart() {
                 {/*1*/}
                 <SwiperSlide>
                     <div className="flex justify-between h-[304px] w-full gap-[30px]">
-                        <CardOrderCart
+                        <CardOrder
                             id={1}
                             category={["House Plants", "New Arrivals"]}
                             image={ImgCard1}
@@ -41,7 +41,7 @@ export default  function SliderCart() {
                             price={179}
                             size={["Small"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={2}
                             category={["Potter Plants"]}
                             image={ImgCard2}
@@ -49,7 +49,7 @@ export default  function SliderCart() {
                             price={119}
                             size={["Medium"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={3}
                             category={["Seeds", "New Arrivals"]}
                             image={ImgCard3}
@@ -57,7 +57,7 @@ export default  function SliderCart() {
                             price={169}
                             size={["Large"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={4}
                             category={["Small Plants"]}
                             image={ImgCard4}
@@ -65,7 +65,7 @@ export default  function SliderCart() {
                             price={199}
                             size={["Medium"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={5}
                             category={["Big Plants", "Sale"]}
                             image={ImgCard5}
@@ -79,7 +79,7 @@ export default  function SliderCart() {
                 {/*2*/}
                 <SwiperSlide>
                     <div className="flex justify-between h-[304px] w-full gap-[30px]">
-                        <CardOrderCart
+                        <CardOrder
                             id={5}
                             category={["Big Plants", "Sale"]}
                             image={ImgCard5}
@@ -87,7 +87,7 @@ export default  function SliderCart() {
                             price={129}
                             size={["Small"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={2}
                             category={["Potter Plants"]}
                             image={ImgCard2}
@@ -95,7 +95,7 @@ export default  function SliderCart() {
                             price={119}
                             size={["Medium"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={3}
                             category={["Seeds", "New Arrivals"]}
                             image={ImgCard3}
@@ -103,7 +103,7 @@ export default  function SliderCart() {
                             price={169}
                             size={["Large"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={4}
                             category={["Small Plants"]}
                             image={ImgCard4}
@@ -111,7 +111,7 @@ export default  function SliderCart() {
                             price={199}
                             size={["Medium"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={1}
                             category={["House Plants", "New Arrivals"]}
                             image={ImgCard1}
@@ -157,7 +157,7 @@ export default  function SliderCart() {
                             price={39}
                             size={["Medium"]}
                         />
-                        <CardOrderCart
+                        <CardOrder
                             id={5}
                             category={["Big Plants", "Sale"]}
                             image={ImgCard5}

@@ -163,7 +163,7 @@ function ProductInfo() {
                             </button>
                         </div>
                     </div>
-                    <div className="flex flex-col mt-[25px] gap-[10px]">
+                    <div className="flex flex-col mt-[20px] gap-[10px]">
                         <p className="text-[15px] text-gray-500"><span
                             className="text-gray-400">SKU:</span> 1995751877966
                         </p>
@@ -173,7 +173,7 @@ function ProductInfo() {
                         <p className="text-[15px] text-gray-500"><span
                             className="text-gray-400">Tags: </span>Home, Garden, Plants
                         </p>
-                        <div className="flex flex-row mt-[8px] gap-2">
+                        <div className="flex flex-row mt-[7px] gap-2">
                             <p className="text-[#3D3D3D] font-[500] text-[15px]">Share this products: </p>
                             <div className="flex flex-row justify-center items-center">
                                 <button className="text-black hover:text-gray-400 cursor-pointer w-[15px] h-[15px] mr-2">

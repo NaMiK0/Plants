@@ -39,7 +39,7 @@ export default  function SliderCart() {
                             image={ImgCard1}
                             title="Aluminum Plant"
                             price={179}
-                            size="Small"
+                            size={["Small"]}
                         />
                         <CardOrderCart
                             id={2}
@@ -47,7 +47,7 @@ export default  function SliderCart() {
                             image={ImgCard2}
                             title="Barberton Daisy"
                             price={119}
-                            size="Medium"
+                            size={["Medium"]}
                         />
                         <CardOrderCart
                             id={3}
@@ -55,7 +55,7 @@ export default  function SliderCart() {
                             image={ImgCard3}
                             title="Angel Wing Begonia"
                             price={169}
-                            size="Large"
+                            size={["Large"]}
                         />
                         <CardOrderCart
                             id={4}
@@ -63,7 +63,7 @@ export default  function SliderCart() {
                             image={ImgCard4}
                             title="African Violet"
                             price={199}
-                            size="Medium"
+                            size={["Medium"]}
                         />
                         <CardOrderCart
                             id={5}
@@ -71,7 +71,7 @@ export default  function SliderCart() {
                             image={ImgCard5}
                             title="Beach Spider Lily"
                             price={129}
-                            size="Small"
+                            size={["Small"]}
                         />
                     </div>
                 </SwiperSlide>
@@ -85,7 +85,7 @@ export default  function SliderCart() {
                             image={ImgCard5}
                             title="Beach Spider Lily"
                             price={129}
-                            size="Small"
+                            size={["Small"]}
                         />
                         <CardOrderCart
                             id={2}
@@ -93,7 +93,7 @@ export default  function SliderCart() {
                             image={ImgCard2}
                             title="Barberton Daisy"
                             price={119}
-                            size="Medium"
+                            size={["Medium"]}
                         />
                         <CardOrderCart
                             id={3}
@@ -101,7 +101,7 @@ export default  function SliderCart() {
                             image={ImgCard3}
                             title="Angel Wing Begonia"
                             price={169}
-                            size="Large"
+                            size={["Large"]}
                         />
                         <CardOrderCart
                             id={4}
@@ -109,7 +109,7 @@ export default  function SliderCart() {
                             image={ImgCard4}
                             title="African Violet"
                             price={199}
-                            size="Medium"
+                            size={["Medium"]}
                         />
                         <CardOrderCart
                             id={1}
@@ -117,7 +117,7 @@ export default  function SliderCart() {
                             image={ImgCard1}
                             title="Aluminum Plant"
                             price={179}
-                            size="Small"
+                            size={["Small"]}
                         />
                     </div>
                 </SwiperSlide>
@@ -131,7 +131,7 @@ export default  function SliderCart() {
                             image={ImgCard6}
                             title="Blushing Bromeliad"
                             price={139}
-                            size="Large"
+                            size={["Large"]}
                         />
                         <CardOrder
                             id={7}
@@ -139,7 +139,7 @@ export default  function SliderCart() {
                             image={ImgCard7}
                             title="Bird's Nest Fern"
                             price={99}
-                            size="Large"
+                            size={["Large"]}
                         />
                         <CardOrder
                             id={8}
@@ -147,7 +147,7 @@ export default  function SliderCart() {
                             image={ImgCard8}
                             title="Broadleaf Lady Palm"
                             price={59}
-                            size="Small"
+                            size={["Small"]}
                         />
                         <CardOrder
                             id={9}
@@ -155,7 +155,7 @@ export default  function SliderCart() {
                             image={ImgCard9}
                             title="Chinese Evergreen"
                             price={39}
-                            size="Medium"
+                            size={["Medium"]}
                         />
                         <CardOrderCart
                             id={5}
@@ -163,7 +163,7 @@ export default  function SliderCart() {
                             image={ImgCard5}
                             title="Beach Spider Lily"
                             price={129}
-                            size="Small"
+                            size={["Small"]}
                         />
                     </div>
                 </SwiperSlide>

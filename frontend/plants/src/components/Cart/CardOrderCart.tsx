@@ -12,11 +12,11 @@ interface  ProductCardProps {
     image: string;
     title: string;
     price: number;
-    size: string;
+    size: string[];
 }
 
 
-const CardOrderCart: React.FC<ProductCardProps> = ({id, image,title,price}) => {
+const CardOrderCart: React.FC<ProductCardProps> = ({id, image, title, price}) => {
     const [cardActive, setCardActive] = useState(false);
     const { addToCart } = useCart();
 
@@ -41,7 +41,7 @@ const CardOrderCart: React.FC<ProductCardProps> = ({id, image,title,price}) => {
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50"
                             >
-                                <button onClick={() => addToCart({ id, title, price, image, quantity: 1 })}><img src={ImgBasket} alt="Img" className="w-[20px] h-[20px] brightness-0 cursor-pointer"/></button>
+                                <button onClick={() => addToCart({ id, title, price, image, quantity: 1, size: null })}><img src={ImgBasket} alt="Img" className="w-[20px] h-[20px] brightness-0 cursor-pointer"/></button>
                             </div>
                             <div
                                 className="bg-white w-[35px] h-[35px] flex justify-center items-center rounded-[7px] hover:bg-green-50">

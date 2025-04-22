@@ -6,6 +6,7 @@ import {Reviews} from "./Cart/Reviews.tsx";
 import {useCart} from "../components/Cart/ContextCart.tsx";
 import Alert1 from "./Alert1.tsx";
 
+
 function ProductInfo() {
     const {id} = useParams<{id:string}>();
     const product = products.find(p => p.id === Number(id));
@@ -106,18 +107,18 @@ function ProductInfo() {
                             })}
                         </div>
                     </div>
-                    <div className="flex flex-row gap-[16px]">
+                    <div className="flex flex-row gap-[16px] items-center">
                         <button
-                            className={`w-[21px] h-[25px] rounded-[14px]  
+                            className={`w-[27px] h-[31px] rounded-[14px]  
                                             ${count === 1 ? "bg-gray-300" : "bg-green-700 cursor-pointer hover:bg-green-600 transition duration-300"}`}
                             onClick={() => setCount(prevCount => Math.max(prevCount - 1, 1))}
                             disabled={count === 1}
                         >
-                            <p className="text-[12px] text-white font-[800] mb-[6px]">_</p>
+                            <p className="text-[12px] text-white font-[800] mb-[9px]">_</p>
                         </button>
                         <p className="w-[20px] flex justify-center">{count}</p>
                         <button
-                            className={`w-[21px] h-[25px] rounded-[14px] 
+                            className={`w-[27px] h-[31px] rounded-[14px] 
                                             ${count === 45 ? "bg-gray-300" : "bg-green-700 cursor-pointer hover:bg-green-600 transition duration-300"}`}
                             onClick={() => setCount(prev => Math.min(prev + 1, 45))}
                             disabled={count === 45}
@@ -132,7 +133,7 @@ function ProductInfo() {
                             <button
                                 className="w-[130px] h-[40px] bg-white text-green-700 border-1 rounded-[5px] hover:bg-green-600 hover:text-white cursor-pointer transition duration-300 font-[700]"
                                 onClick={() => {
-                                    if(!selectedSize) {
+                                    if (!selectedSize) {
                                         alert("Please select a size");
                                         return;
                                     }
@@ -149,13 +150,72 @@ function ProductInfo() {
                             >
                                 Add to cart
                             </button>
+                            <button
+                                className="w-[40px] h-[40px] flex justify-center items-center bg-white text-green-700 border-1 rounded-[5px] hover:text-red-700 transition-colors cursor-pointer duration-300 font-[700]"
+                            >
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                                     className="transition-colors"
+                                >
+                                    <path
+                                        d="M10 18.8873C9.71527 18.8873 9.44077 18.7842 9.22684 18.5968C8.41888 17.8903 7.63992 17.2264 6.95267 16.6408L6.94916 16.6377C4.93423 14.9207 3.19427 13.4378 1.98364 11.9771C0.630341 10.3441 0 8.79578 0 7.10434C0 5.46097 0.563507 3.94485 1.58661 2.83508C2.62192 1.71219 4.04251 1.09375 5.58716 1.09375C6.74164 1.09375 7.79892 1.45874 8.72955 2.1785C9.19922 2.54181 9.62494 2.98645 10 3.5051C10.3752 2.98645 10.8008 2.54181 11.2706 2.1785C12.2012 1.45874 13.2585 1.09375 14.413 1.09375C15.9575 1.09375 17.3782 1.71219 18.4135 2.83508C19.4366 3.94485 20 5.46097 20 7.10434C20 8.79578 19.3698 10.3441 18.0165 11.9769C16.8059 13.4378 15.0661 14.9205 13.0515 16.6374C12.363 17.224 11.5828 17.8889 10.773 18.5971C10.5592 18.7842 10.2846 18.8873 10 18.8873ZM5.58716 2.26532C4.37363 2.26532 3.25882 2.74963 2.44781 3.62915C1.62476 4.52194 1.17142 5.75607 1.17142 7.10434C1.17142 8.52692 1.70013 9.79919 2.88559 11.2296C4.03137 12.6122 5.73563 14.0645 7.70889 15.7462L7.71255 15.7492C8.4024 16.3371 9.18442 17.0036 9.99832 17.7153C10.8171 17.0023 11.6003 16.3347 12.2916 15.7458C14.2647 14.0642 15.9688 12.6122 17.1146 11.2296C18.2999 9.79919 18.8286 8.52692 18.8286 7.10434C18.8286 5.75607 18.3752 4.52194 17.5522 3.62915C16.7413 2.74963 15.6264 2.26532 14.413 2.26532C13.524 2.26532 12.7078 2.54791 11.9872 3.10516C11.3449 3.60199 10.8975 4.23004 10.6352 4.66949C10.5003 4.89548 10.2629 5.03036 10 5.03036C9.73709 5.03036 9.49966 4.89548 9.36478 4.66949C9.10263 4.23004 8.65524 3.60199 8.01285 3.10516C7.29218 2.54791 6.47598 2.26532 5.58716 2.26532Z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="flex flex-col mt-[25px] gap-[10px]">
+                        <p className="text-[15px] text-gray-500"><span
+                            className="text-gray-400">SKU:</span> 1995751877966
+                        </p>
+                        <p className="text-[15px] text-gray-500"><span
+                            className="text-gray-400">Categories: </span>Potter Plants
+                        </p>
+                        <p className="text-[15px] text-gray-500"><span
+                            className="text-gray-400">Tags: </span>Home, Garden, Plants
+                        </p>
+                        <div className="flex flex-row mt-[8px] gap-2">
+                            <p className="text-[#3D3D3D] font-[500] text-[15px]">Share this products: </p>
+                            <div className="flex flex-row justify-center items-center">
+                                <button className="text-black hover:text-gray-400 cursor-pointer w-[15px] h-[15px] mr-2">
+                                    <svg width="8" height="16" viewBox="0 0 8 16" fill="currentColor"
+                                         className="transition-colors"
+                                    >
+                                        <path
+                                            d="M2 5.33333H0V8H2V16H5.33333V8H7.73333L8 5.33333H5.33333V4.2C5.33333 3.6 5.46667 3.33333 6.06667 3.33333H8V0H5.46667C3.06667 0 2 1.06667 2 3.06667V5.33333Z"/>
+                                    </svg>
+                                </button>
+                                <button className=" text-black hover:text-gray-400 cursor-pointer w-[15px] h-[15px] mr-3">
+                                    <svg width="16" height="13" viewBox="0 0 16 13" fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5.03186 13.0036C11.0699 13.0036 14.3718 8.00118 14.3718 3.66357C14.3718 3.52144 14.3689 3.38005 14.3624 3.2392C15.0033 2.77588 15.5605 2.19756 16 1.53953C15.4118 1.80085 14.7789 1.97682 14.1149 2.05616C14.7926 1.64981 15.313 1.0067 15.5585 0.24021C14.9241 0.616357 14.2217 0.889688 13.4742 1.03709C12.8749 0.399076 12.0218 0 11.0779 0C9.26483 0 7.79464 1.4702 7.79464 3.28233C7.79464 3.54001 7.82357 3.79041 7.87962 4.0308C5.1516 3.89377 2.73239 2.58735 1.11352 0.601253C0.831273 1.08622 0.668767 1.64999 0.668767 2.25106C0.668767 3.38988 1.24837 4.3953 2.12968 4.98363C1.59121 4.96707 1.08531 4.81894 0.642926 4.57291C0.642198 4.58656 0.642198 4.60039 0.642198 4.61476C0.642198 6.2047 1.77392 7.53204 3.27578 7.83285C3.00008 7.90801 2.71001 7.94841 2.41047 7.94841C2.19901 7.94841 1.99338 7.9273 1.79339 7.88927C2.21121 9.19332 3.42318 10.1425 4.86007 10.1693C3.73636 11.0499 2.32094 11.5745 0.783049 11.5745C0.518272 11.5745 0.256952 11.5594 0 11.529C1.45273 12.46 3.17769 13.0036 5.03186 13.0036Z"
+                                            />
+                                    </svg>
+                                </button>
+                                <button className="text-black hover:text-gray-400 cursor-pointer w-[15px] h-[15px] mr-3">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M3.33333 1.66667C3.33333 2.6 2.6 3.33333 1.66667 3.33333C0.733333 3.33333 0 2.6 0 1.66667C0 0.733333 0.733333 0 1.66667 0C2.6 0 3.33333 0.733333 3.33333 1.66667ZM3.33333 4.66667H0V15.3333H3.33333V4.66667ZM8.66667 4.66667H5.33333V15.3333H8.66667V9.73333C8.66667 6.6 12.6667 6.33333 12.6667 9.73333V15.3333H16V8.6C16 3.33333 10.0667 3.53333 8.66667 6.13333V4.66667Z"
+                                           />
+                                    </svg>
+                                </button>
+                                <button className="text-black hover:text-gray-400 cursor-pointer w-[15px] h-[15px]">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8 1.46667C10.1333 1.46667 10.4 1.46667 11.2667 1.53333C13.4667 1.6 14.4667 2.66667 14.5333 4.8C14.6 5.66667 14.6 5.86667 14.6 8C14.6 10.1333 14.6 10.4 14.5333 11.2C14.4667 13.3333 13.4 14.4 11.2667 14.4667C10.4 14.5333 10.2 14.5333 8 14.5333C5.86667 14.5333 5.6 14.5333 4.8 14.4667C2.6 14.4 1.6 13.3333 1.53333 11.2C1.46667 10.3333 1.46667 10.1333 1.46667 8C1.46667 5.86667 1.46667 5.6 1.53333 4.8C1.6 2.66667 2.66667 1.6 4.8 1.53333C5.6 1.46667 5.86667 1.46667 8 1.46667ZM8 0C5.8 0 5.53333 0 4.73333 0.0666667C1.8 0.2 0.2 1.8 0.0666667 4.73333C0 5.53333 0 5.8 0 8C0 10.2 0 10.4667 0.0666667 11.2667C0.2 14.2 1.8 15.8 4.73333 15.9333C5.53333 16 5.8 16 8 16C10.2 16 10.4667 16 11.2667 15.9333C14.2 15.8 15.8 14.2 15.9333 11.2667C16 10.4667 16 10.2 16 8C16 5.8 16 5.53333 15.9333 4.73333C15.8 1.8 14.2 0.2 11.2667 0.0666667C10.4667 0 10.2 0 8 0ZM8 3.86667C5.73333 3.86667 3.86667 5.73333 3.86667 8C3.86667 10.2667 5.73333 12.1333 8 12.1333C10.2667 12.1333 12.1333 10.2667 12.1333 8C12.1333 5.73333 10.2667 3.86667 8 3.86667ZM8 10.6667C6.53333 10.6667 5.33333 9.46667 5.33333 8C5.33333 6.53333 6.53333 5.33333 8 5.33333C9.46667 5.33333 10.6667 6.53333 10.6667 8C10.6667 9.46667 9.46667 10.6667 8 10.6667ZM12.2667 2.8C11.7333 2.8 11.3333 3.2 11.3333 3.73333C11.3333 4.26667 11.7333 4.66667 12.2667 4.66667C12.8 4.66667 13.2 4.26667 13.2 3.73333C13.2 3.2 12.8 2.8 12.2667 2.8Z"
+                                            />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
 
                 </section>
             </div>
-            {showAlert && <Alert1 onClose={() => setShowAlert(false)} />}
+            {showAlert && <Alert1 onClose={() => setShowAlert(false)}/>}
         </div>
     )
 }

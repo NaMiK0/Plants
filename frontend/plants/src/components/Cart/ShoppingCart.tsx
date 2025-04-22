@@ -53,7 +53,8 @@ function ShoppingCart() {
                                         <div className="flex flex-col w-[190px] gap-[2px]">
                                             <p className="text-[16px] font-[500] text-gray-700">{item.title}</p>
                                             <p className="text-[14px] text-gray-500"><span
-                                                className="text-gray-400">SKU:</span> 1995751877966</p>
+                                                className="text-gray-400">SKU:</span> 1995751877966
+                                            </p>
                                         </div>
                                     </div>
                                     <div className="w-[70px] mr-[77px] text-gray-500 font-[500] text-[16px]">

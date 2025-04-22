@@ -100,23 +100,20 @@ export default function Header() {
 
                             {isRegistering && (
                                 <input type="text"
-                                       className="w-[300px] h-[40px] rounded-[5px] border"
-                                       style={{textIndent: "10px"}}
+                                       className="w-[300px] h-[40px] rounded-[5px] border indent-[10px]"
                                        placeholder="Username"
                                        required
                                        autoComplete="username"/>
                             )}
                             <input type="email"
-                                   className="w-[300px] h-[40px] rounded-[5px] border "
-                                   style={{textIndent: "10px"}}
+                                   className="w-[300px] h-[40px] rounded-[5px] border indent-[10px]"
                                    placeholder={isRegistering ? "Enter" +
                                        " your email address" : "Email"}
                                    required
                                    autoComplete="email"/>
                             <div className="relative">
                                 <input type={isPasswordVisible ? "text" : "password"}
-                                       className="w-[300px] h-[40px] rounded-[5px] border relative content: '' absolute bg-[url(../assets/Header/Hide.png)]"
-                                       style={{textIndent: "10px"}}
+                                       className="w-[300px] h-[40px] rounded-[5px] border indent-[10px]"
                                        placeholder="Password"
                                        required
                                        autoComplete="current-password"/>
@@ -132,8 +129,7 @@ export default function Header() {
                             {isRegistering && (
                                 <div className="relative">
                                     <input type={isConfirmPasswordVisible ? "text" : "password"}
-                                           className="w-[300px] h-[40px] rounded-[5px] border"
-                                           style={{textIndent: "10px"}}
+                                           className="w-[300px] h-[40px] rounded-[5px] border indent-[10px]"
                                            placeholder="Confirm password"
                                            required
                                            autoComplete="new-password"/>

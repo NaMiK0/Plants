@@ -4,9 +4,7 @@ import ImgTriangle from "../../assets/Profile/Danger Triangle.svg"
 import ImgDownload from "../../assets/Profile/Download.svg"
 import ImgLocation from "../../assets/Profile/Location.svg"
 import ImgLogout from "../../assets/Profile/Logout.svg"
-import ImgBasket from "../../assets/Profile/Basket.svg"
 import ImgLike from "../../assets/Cards/like.svg"
-import {useNavigate} from "react-router-dom";
 import AccountDetails from "./AccountDetails.tsx";
 import {useState} from "react";
 import {ProfileTab} from "./types.ts";
@@ -19,12 +17,12 @@ import Modal_Logout from "./Modal_Logout.tsx";
 
 
 function Profile() {
-        const navigate = useNavigate();
+
         const [activeTab, setActiveTab] = useState<ProfileTab>("account");
 
     return (
         <div className="flex flex-row ml-[120px] mt-[70px]">
-            <section className="flex flex-col w-[310px] h-[405px] bg-gray-100 items-start leading-[45px]">
+            <section className="flex flex-col w-[22vw] h-[52vh] bg-gray-100 items-start leading-[45px] gap-y-2">
                     <h1 className="text-lg font-bold pt-[10px] pl-[15px]">My Account</h1>
                     <button
                         className={`flex flex-row items-center gap-[10px] w-full relative pl-[15px] ${activeTab === "account" ? "text-green-600 bg-white font-semibold" : ""}`}
@@ -48,13 +46,6 @@ function Profile() {
                             Address
                     </button>
 
-                    <button
-                        className="flex flex-row items-center gap-[10px] w-full relative pl-[15px]"
-                        onClick={() => navigate("/shoppingCart")}
-                    >
-                            <img src={ImgBasket} alt="Basket" className="w-[22px]"/>
-                            Orders
-                    </button>
 
                     <button
                         className={`flex flex-row items-center gap-[10px] w-full relative pl-[15px] ${activeTab === "wishlist" ? "text-green-600 bg-white font-semibold" : ""}`}

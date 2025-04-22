@@ -32,15 +32,15 @@ function ShoppingCart() {
 
     return (
         <div  className="m-0 pr-[120px] pl-[120px] pb-[0] font-['Montserrat']">
-            <div className="mt-[60px] mb-[87px] flex flex-row gap-[86px]">
-                <div className="w-[61%] h-[560px] flex flex-col">
+            <div className="mt-[60px] mb-[87px] flex flex-row justify-between">
+                <div className="w-[740px] h-[560px] flex flex-col">
                     <div className="flex flex-row text-[16px]">
                         <p className="pr-[245px]">Products</p>
                         <p className="pr-[108px]">Price</p>
-                        <p className="pr-[108px]">Quantity</p>
+                        <p className="pr-[90px]">Quantity</p>
                         <p>Total</p>
                     </div>
-                    <hr className="text-gray-200 mt-[11px] mb-[11px]"/>
+                    <hr className="text-gray-200 mt-[11px] mb-[11px] mr-[-20px]"/>
                     <div className="overflow-y-auto overflow-x-hidden h-full pr-[20px] mr-[-20px]">
                         {cart.length === 0 ? (
                             <p>Your cart is empty</p>
@@ -53,13 +53,14 @@ function ShoppingCart() {
                                         <div className="flex flex-col w-[190px] gap-[2px]">
                                             <p className="text-[16px] font-[500] text-gray-700">{item.title}</p>
                                             <p className="text-[14px] text-gray-500"><span
-                                                className="text-gray-400">SKU:</span> 1995751877966</p>
+                                                className="text-gray-400">SKU:</span> 1995751877966
+                                            </p>
                                         </div>
                                     </div>
                                     <div className="w-[70px] mr-[77px] text-gray-500 font-[500] text-[16px]">
                                         <p>${item.price.toFixed(2)}</p>
                                     </div>
-                                    <div className="w-[95px] mr-[82px]">
+                                    <div className="w-[95px] mr-[64px]">
                                         <div className="flex flex-row gap-[16px]">
                                             <button
                                                 className={`w-[21px] h-[25px] rounded-[14px]  
@@ -100,7 +101,7 @@ function ShoppingCart() {
                 </div>
 
 
-                <div className="w-[39%]">
+                <div className="w-[456px]">
                     <p className="text-[18px] font-[700] text-[#3D3D3D]">Cart Totals</p>
                     <hr className="text-gray-200 mt-[8px] mb-[11px]"/>
                     <p className="text-[14px] mb-[8px]">Coupon Apply</p>

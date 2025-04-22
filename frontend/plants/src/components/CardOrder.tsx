@@ -18,7 +18,7 @@ interface  ProductCardProps {
 }
 
 
-const CardOrder: React.FC<ProductCardProps> = ({id, image,title,price}) => {
+const CardOrder: React.FC<ProductCardProps> = ({id, image, title, price}) => {
     const [cardActive, setCardActive] = useState(false);
     const { addToCart } = useCart();
 

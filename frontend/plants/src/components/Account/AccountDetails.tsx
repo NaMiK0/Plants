@@ -93,7 +93,7 @@ function AccountDetails() {
                         <img
                             src={isCurPasswordVisible ? ImgShow : ImgHide}
                             alt="Hide/Show"
-                            className="w-5 h-5"/>
+                            className="w-5 h-1/2 translate-y-1/6"/>
                     </button>
                 </div>
 
@@ -108,7 +108,7 @@ function AccountDetails() {
                         <img
                             src={isNewPasswordVisible ? ImgShow : ImgHide}
                             alt="Hide/Show"
-                            className="w-5 h-5"/>
+                            className="w-5 h-1/2 translate-y-1/6"/>
                     </button>
                 </div>
 
@@ -123,7 +123,7 @@ function AccountDetails() {
                         <img
                             src={isConfirmPasswordVisible ? ImgShow : ImgHide}
                             alt="Hide/Show"
-                            className="w-5 h-5"/>
+                            className="w-5 h-1/2 translate-y-1/6"/>
                     </button>
                 </div>
 
